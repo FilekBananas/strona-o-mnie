@@ -140,27 +140,6 @@ a {
   opacity: 0.65;
 }
 
-.cursor-glow {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 540px;
-  height: 540px;
-  border-radius: 999px;
-  pointer-events: none;
-  z-index: -1;
-  transform: translate3d(-50%, -50%, 0);
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(139, 92, 246, 0.24),
-    rgba(34, 211, 238, 0.18),
-    transparent 60%
-  );
-  filter: blur(22px);
-  opacity: 0.9;
-  will-change: transform;
-}
-
 .container {
   width: min(var(--container), calc(100% - 40px));
   margin: 0 auto;
@@ -712,7 +691,6 @@ textarea:focus {
     scroll-behavior: auto !important;
   }
 
-  .cursor-glow,
   .bg-canvas {
     display: none !important;
   }

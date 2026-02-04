@@ -40,7 +40,7 @@
       hero_title: "Startup founder. Buduję QR Transfers.",
       hero_lead_before: "Prowadzę startup pod",
       hero_lead_after:
-        "Lubię rozumieć systemy od środka, budować nowe projekty i automatyzować pracę w praktyczny, pozytywny sposób.",
+        "Lubię rozumieć systemy od środka, budować nowe projekty i automatyzować pracę w praktyczny, pozytywny sposób — tak, żeby skupiać się na tym, co naprawdę ważne.",
       hero_btn_contact: "Kontakt",
       hero_btn_timeline: "Oś czasu",
       type_prefix: "Aktualnie:",
@@ -62,25 +62,49 @@
       quick_primary: "Podstawówka: ukończona ze średnią 5,8 (czerwiec 2025)",
       quick_olympiads: "Olimpiady: 2× finalista Olimpiady Informatycznej Juniorów",
       quick_p:
-        "Interesują mnie debaty, informatyka (różne dziedziny) i budowanie produktów — od pomysłu do działającego systemu.",
+        "Interesują mnie debaty, informatyka (różne dziedziny) i budowanie produktów — od pomysłu do działającego systemu. Najlepiej czuję się, gdy mogę coś zaprojektować, zbudować i sprawdzić w praktyce.",
 
       stat_oij: "Finalista OIJ",
       stat_avg: "Średnia (podstawówka)",
-      stat_polish: "Język polski",
+      stat_e8_math: "Matematyka (E8)",
       stat_qr: "Start QR Transfers",
 
       about_h2: "O mnie",
       about_who_h3: "Kim jestem",
       about_who_p1:
-        "Jestem founderem startupu i uczniem z Warszawy. Aktualnie prowadzę QR Transfers oraz rozwijam się w kierunku inżynierii oprogramowania i budowania produktów.",
+        "Jestem founderem startupu i uczniem z Warszawy. Buduję QR Transfers oraz rozwijam się w kierunku inżynierii oprogramowania i budowania produktów — od pomysłu, przez prototyp, aż po działający system.",
       about_who_p2:
-        "Byłem 2‑krotnym finalistą Olimpiady Informatycznej Juniorów (w 7. i 8. klasie).",
+        "Byłem 2‑krotnym finalistą Olimpiady Informatycznej Juniorów (w 7. i 8. klasie) — to dało mi mocne podstawy algorytmiczne i nawyk systematycznej pracy.",
+      about_who_p3:
+        "Najbardziej kręci mnie moment, w którym pomysł zamienia się w działający produkt: od koncepcji, przez pierwsze prototypy, aż do systemu, który ma sens i działa stabilnie.",
       about_how_h3: "Jak myślę i działam",
       about_how_p:
-        "Mój tok myślenia opiera się na zrozumieniu tego, jak coś działa. Lubię poznawać systemy “od środka” i upraszczać procesy.",
+        "Mój tok myślenia opiera się na zrozumieniu tego, jak coś działa. Lubię poznawać systemy “od środka” — od danych, przez logikę, aż po interfejs — i upraszczać procesy.",
+      about_how_p2:
+        "Zwykle zaczynam od pytania “po co?” i “co jest najważniejsze?”, a dopiero potem dobieram narzędzia. Dzięki temu łatwiej budować rzeczy proste, szybkie i użyteczne.",
       about_how_li1: "Automatyzuję pracę tam, gdzie ma to sens",
       about_how_li2: "Buduję prototypy szybko, ale z myślą o jakości",
       about_how_li3: "Najlepiej uczę się, gdy mogę coś zbudować i przetestować",
+      about_how_li4: "Lubię rozbijać problem na mniejsze kawałki",
+      about_how_li5: "Dbam o czytelność, bo to przyspiesza rozwój",
+
+      tech_h3: "Technologie",
+      tech_p1:
+        "Programuję głównie w C++, Pythonie i JavaScripcie oraz używam HTML/CSS do webu. Lubię dopasować technologię do zadania i budować rozwiązania, które da się rozwijać.",
+      tech_li1: "C++ — algorytmy, myślenie konkursowe, wydajność",
+      tech_li2: "Python — automatyzacje, narzędzia, backend",
+      tech_li3: "JavaScript + HTML/CSS — interaktywne UI i UX",
+      tech_li4:
+        "Flask (Python) — mój ulubiony wybór do stron, gdy potrzebuję backendu i szablonów",
+
+      build_h3: "Jak buduję projekty",
+      build_p1:
+        "Najpierw sprawdzam, czy problem jest realny i czy da się go rozwiązać prosto. Potem stawiam prototyp, zbieram feedback i iteruję.",
+      build_p2:
+        "Lubię, kiedy wszystko jest “ogarnialne”: jasne priorytety, małe kroki, szybkie testy, a na końcu produkt, z którego ktoś faktycznie korzysta.",
+      build_li1: "Prototyp → test → poprawki → wersja produkcyjna",
+      build_li2: "Automatyzacje, które oszczędzają czas na co dzień",
+      build_li3: "Dobre podstawy: prostota, bezpieczeństwo, stabilność",
 
       timeline_h2: "Oś czasu",
       t1_date: "wrz 2017",
@@ -102,14 +126,18 @@
 
       awards_h2: "Osiągnięcia i zainteresowania",
       honors_h3: "Osiągnięcia",
+      honors_p:
+        "Traktuję konkursy i projekty jako trening: uczą systematyczności, rozwiązywania problemów i szukania prostych, działających rozwiązań.",
       honors_li1: "2× finalista Olimpiady Informatycznej Juniorów (klasa 7 i 8)",
       honors_li4:
         "Zakwalifikowałem się do finału mazowieckiego konkursu informatycznego LOGIA",
       honors_li5: "Zakwalifikowałem się do 2. etapu Olimpiady Matematycznej",
-      honors_li6: "100% z języka polskiego",
+      honors_li6: "100% z matematyki (egzamin ósmoklasisty)",
       honors_li2: "Wielokrotnie wyróżniony w Kangurze Matematycznym",
       honors_li3: "Wielokrotnie wyróżniony w konkursie logicznego myślenia",
       interests_h3: "Co mnie kręci",
+      interests_p:
+        "Lubię łączyć myślenie “na chłodno” z kreatywnością — z jednej strony logika i dowody, z drugiej: produkt, UX i szybkie eksperymenty.",
       interests_li1: "Debaty i logiczne argumentowanie",
       interests_li2: "Informatyka (różne dziedziny) i startupy",
       interests_li3: "Rozumienie systemów “od środka”",
@@ -122,13 +150,19 @@
         "Moim celem jest zmieniać świat na lepszy. Wierzę, że największy realny wpływ mogę mieć, budując startupy i produkty, które poprawiają życie ludzi.",
       goal_p2:
         "Dlatego stawiam na zrozumienie “jak to działa”, szybkie prototypowanie i iterowanie aż do działającego systemu.",
+      goal_p3:
+        "Chcę tworzyć rzeczy proste w użyciu, uczciwe wobec użytkownika i na tyle solidne, żeby można było na nich polegać.",
 
       lead_h3: "Wolontariat i liderstwo",
+      lead_p:
+        "Lubię robić rzeczy, które mają sens nie tylko “dla mnie”. Wolontariat i działalność w szkole nauczyły mnie organizacji, komunikacji i tego, że najwięcej da się zrobić zespołowo.",
       lead_li1: "Brałem udział w wielu wolontariatach",
       lead_li2: "W podstawówce byłem wiceprzewodniczącym szkoły (samorządu uczniowskiego)",
       lead_li3: "Lubię działać w zespole i brać odpowiedzialność",
 
       sport_h3: "Sport",
+      sport_p:
+        "Sport daje mi energię i uczy regularności. Lubię trenować i widzieć progres — nawet mały, ale konsekwentny.",
       sport_li1: "Uwielbiam sport i zdrową rywalizację",
       sport_li2: "Trenowałem tenis stołowy — liczne sukcesy w turniejach dzielnicowych",
       sport_li3: "Trenuję tenis i narciarstwo",
@@ -177,7 +211,7 @@
       hero_title: "Startup founder. Building QR Transfers.",
       hero_lead_before: "I run a startup at",
       hero_lead_after:
-        "I like understanding systems from the inside, building new projects, and automating work in a practical, positive way.",
+        "I like understanding systems from the inside, building new projects, and automating work in a practical, positive way — so I can focus on what matters most.",
       hero_btn_contact: "Contact",
       hero_btn_timeline: "Timeline",
       type_prefix: "Currently:",
@@ -199,25 +233,49 @@
       quick_primary: "Primary school: graduated with a 5.8 average (June 2025)",
       quick_olympiads: "Olympiads: 2× finalist of the Junior Informatics Olympiad (OIJ)",
       quick_p:
-        "I’m into debates, computer science (different areas), and building products — from idea to a working system.",
+        "I’m into debates, computer science (different areas), and building products — from idea to a working system. I’m at my best when I can design, build, and validate something in real life.",
 
       stat_oij: "OIJ finalist",
       stat_avg: "Average grade",
-      stat_polish: "Polish language",
+      stat_e8_math: "Math (E8 exam)",
       stat_qr: "QR Transfers started",
 
       about_h2: "About",
       about_who_h3: "Who I am",
       about_who_p1:
-        "I’m a startup founder and a student from Warsaw. I’m currently building QR Transfers and growing as a software engineer and product builder.",
+        "I’m a startup founder and a student from Warsaw. I’m building QR Transfers and growing as a software engineer and product builder — from idea, to prototype, to a system people can actually use.",
       about_who_p2:
-        "I was a 2× finalist of the Junior Informatics Olympiad (in 7th and 8th grade).",
+        "I was a 2× finalist of the Junior Informatics Olympiad (in 7th and 8th grade) — it gave me strong algorithmic fundamentals and the habit of consistent work.",
+      about_who_p3:
+        "What excites me most is the moment when an idea turns into a real product: from concept, through early prototypes, to a system that makes sense and works reliably.",
       about_how_h3: "How I think & work",
       about_how_p:
-        "My thinking is based on understanding how things work. I enjoy exploring systems from the inside and simplifying processes.",
+        "My thinking is based on understanding how things work. I enjoy exploring systems from the inside — from data, through logic, all the way to the interface — and simplifying processes.",
+      about_how_p2:
+        "I usually start with “why?” and “what matters most?” and only then pick tools. It makes it easier to build things that are simple, fast, and useful.",
       about_how_li1: "I automate work where it makes sense",
       about_how_li2: "I prototype fast, with quality in mind",
       about_how_li3: "I learn best by building and testing",
+      about_how_li4: "I like breaking problems into smaller pieces",
+      about_how_li5: "I care about readability because it speeds things up",
+
+      tech_h3: "Tech stack",
+      tech_p1:
+        "I mostly code in C++, Python, and JavaScript, and use HTML/CSS for the web. I like choosing the right tool for the job and building solutions that can grow over time.",
+      tech_li1: "C++ — algorithms, competitive thinking, performance",
+      tech_li2: "Python — automation, tooling, backend",
+      tech_li3: "JavaScript + HTML/CSS — interactive UI and UX",
+      tech_li4:
+        "Flask (Python) — my go‑to for websites when I need a backend and templates",
+
+      build_h3: "How I build projects",
+      build_p1:
+        "First I validate the problem and look for the simplest useful solution. Then I build a prototype, collect feedback, and iterate.",
+      build_p2:
+        "I like things to be manageable: clear priorities, small steps, quick tests — and in the end, a product that someone genuinely uses.",
+      build_li1: "Prototype → test → iterate → production",
+      build_li2: "Automation that saves time daily",
+      build_li3: "Strong basics: simplicity, security, stability",
 
       timeline_h2: "Timeline",
       t1_date: "Sep 2017",
@@ -238,13 +296,17 @@
 
       awards_h2: "Achievements & interests",
       honors_h3: "Achievements",
+      honors_p:
+        "I treat competitions and projects like training: they build consistency, problem‑solving skills, and the ability to find simple solutions that work.",
       honors_li1: "2× Junior Informatics Olympiad finalist (grades 7 & 8)",
       honors_li4: "Qualified for the final of the Mazovian informatics contest LOGIA",
       honors_li5: "Qualified for the 2nd stage of the Mathematical Olympiad",
-      honors_li6: "100% in Polish language",
+      honors_li6: "100% in math (8th‑grade exam, E8)",
       honors_li2: "Multiple distinctions in the Kangaroo Math contest",
       honors_li3: "Multiple distinctions in a logical thinking contest",
       interests_h3: "What I’m into",
+      interests_p:
+        "I enjoy mixing “cold” logic with creativity — on one side proofs and reasoning, on the other product thinking, UX, and fast experiments.",
       interests_li1: "Debates and clear reasoning",
       interests_li2: "Computer science and startups",
       interests_li3: "Understanding systems from the inside",
@@ -257,13 +319,19 @@
         "My goal is to make the world better. I believe the biggest real impact I can have as an individual is by building startups and products that improve people’s lives.",
       goal_p2:
         "That’s why I focus on understanding how things work, prototyping fast, and iterating until it becomes a solid system.",
+      goal_p3:
+        "I want to build things that are easy to use, fair to users, and solid enough to rely on.",
 
       lead_h3: "Volunteering & leadership",
+      lead_p:
+        "I like doing things that matter beyond just myself. Volunteering and school activities taught me organization, communication, and that the biggest results come from teamwork.",
       lead_li1: "I’ve taken part in many volunteering initiatives",
       lead_li2: "In primary school, I was the vice‑chair of the student council",
       lead_li3: "I enjoy teamwork and taking responsibility",
 
       sport_h3: "Sports",
+      sport_p:
+        "Sports give me energy and teach consistency. I like training and seeing progress — even small, but steady.",
       sport_li1: "I love sports and healthy competition",
       sport_li2: "I trained table tennis — multiple successes in district tournaments",
       sport_li3: "I train tennis and skiing",
@@ -394,7 +462,7 @@
   updateLangButtons();
 
   // Theme
-  const storageKey = "theme";
+  const storageKey = "theme_v2";
   const toggle = document.querySelector("[data-theme-toggle]");
   const themeListeners = new Set();
 
@@ -570,37 +638,6 @@
       card.addEventListener("pointerleave", () => reset(card));
       card.addEventListener("blur", () => reset(card), true);
     });
-  })();
-
-  // Cursor glow (subtle).
-  (function initCursorGlow() {
-    if (!pointerFine || prefersReducedMotion) return;
-
-    const glow = document.createElement("div");
-    glow.className = "cursor-glow";
-    glow.setAttribute("aria-hidden", "true");
-    document.body.appendChild(glow);
-
-    let tx = window.innerWidth * 0.5;
-    let ty = window.innerHeight * 0.35;
-    let x = tx;
-    let y = ty;
-
-    const onMove = (e) => {
-      tx = e.clientX;
-      ty = e.clientY;
-    };
-
-    window.addEventListener("pointermove", onMove, { passive: true });
-
-    const tick = () => {
-      x += (tx - x) * 0.12;
-      y += (ty - y) * 0.12;
-      glow.style.transform = `translate3d(${x}px, ${y}px, 0) translate3d(-50%, -50%, 0)`;
-      window.requestAnimationFrame(tick);
-    };
-
-    window.requestAnimationFrame(tick);
   })();
 
   // Animated background canvas (particles + connections).
