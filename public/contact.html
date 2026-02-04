@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Filip Biskupski</title>
+    <meta
+      name="description"
+      content="Contact page with a simple form."
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script defer src="assets/main.js"></script>
+    <script defer src="assets/contact.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Primary" data-nav>
+          <a class="brand" href="./">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Filip Biskupski</span>
+          </a>
+          <div class="nav-links">
+            <a href="./">About</a>
+            <a href="contact.html">Contact</a>
+            <button class="theme-toggle" type="button" data-theme-toggle>
+              Theme
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="card pad">
+              <h1>Let’s talk.</h1>
+              <p class="lead">
+                Send a short message — I’ll get back to you as soon as I can.
+              </p>
+
+              <div class="pill-row" aria-label="Topics">
+                <span class="pill"><span class="spark"></span>Job offer</span>
+                <span class="pill"><span class="spark"></span>Websites</span>
+                <span class="pill"><span class="spark"></span>Startup</span>
+                <span class="pill"><span class="spark"></span>Advising</span>
+              </div>
+            </div>
+
+            <aside class="card pad">
+              <h2 style="margin-top: 0">Contact form</h2>
+              <form class="form" id="contact-form" novalidate>
+                <input
+                  class="hp"
+                  type="text"
+                  name="website"
+                  autocomplete="off"
+                  tabindex="-1"
+                />
+
+                <div class="grid-2" style="gap: 12px">
+                  <div class="field">
+                    <label for="firstName">First name</label>
+                    <input
+                      id="firstName"
+                      name="firstName"
+                      type="text"
+                      autocomplete="given-name"
+                      required
+                      maxlength="60"
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="lastName">Last name</label>
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      type="text"
+                      autocomplete="family-name"
+                      required
+                      maxlength="60"
+                    />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    maxlength="254"
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="category">Category</label>
+                  <select id="category" name="category" required>
+                    <option value="" selected disabled>Select one…</option>
+                    <option>Job offer</option>
+                    <option>Websites</option>
+                    <option>Startup</option>
+                    <option>Advising</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="title">Title</label>
+                  <input id="title" name="title" type="text" required maxlength="120" />
+                </div>
+
+                <div class="field">
+                  <label for="description">Description</label>
+                  <textarea
+                    id="description"
+                    name="description"
+                    required
+                    maxlength="5000"
+                    placeholder="A few lines are enough…"
+                  ></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button class="button primary" id="submit-btn" type="submit">
+                    Send message
+                  </button>
+                  <span class="status" id="form-status" role="status" aria-live="polite"
+                    >Opens your email app.</span
+                  >
+                </div>
+              </form>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+          <span>© <span id="y"></span> Filip Biskupski</span>
+          <a class="muted" href="./">Back to About</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
