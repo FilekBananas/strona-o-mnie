@@ -462,7 +462,7 @@
   updateLangButtons();
 
   // Theme
-  const storageKey = "theme_v2";
+  const storageKey = "theme";
   const toggle = document.querySelector("[data-theme-toggle]");
   const themeListeners = new Set();
 
