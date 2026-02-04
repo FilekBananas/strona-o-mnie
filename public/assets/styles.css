@@ -204,6 +204,43 @@ a {
   gap: 10px;
 }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.lang-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 650;
+  letter-spacing: 0.3px;
+  transition: background 140ms ease, color 140ms ease, transform 120ms ease;
+}
+
+.lang-btn:hover {
+  background: var(--card-strong);
+  color: var(--text);
+}
+
+.lang-btn[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--card-strong) 80%, transparent);
+  color: var(--text);
+}
+
+.lang-btn:active {
+  transform: translateY(1px);
+}
+
 .nav-links a {
   padding: 10px 12px;
   border-radius: 12px;
@@ -544,6 +581,15 @@ textarea {
   padding: 12px 12px;
   outline: none;
   transition: border-color 140ms ease, background 140ms ease;
+}
+
+select {
+  background: color-mix(in srgb, var(--bg1) 82%, var(--card));
+}
+
+select option {
+  background: var(--bg1);
+  color: var(--text);
 }
 
 textarea {

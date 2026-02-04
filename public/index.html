@@ -13,7 +13,7 @@
     <script defer src="assets/main.js"></script>
   </head>
   <body>
-    <a class="skip" href="#main">Przejdź do treści</a>
+    <a class="skip" href="#main" data-i18n="skip">Przejdź do treści</a>
     <header class="site-header">
       <div class="container">
         <nav class="nav" aria-label="Primary" data-nav>
@@ -22,10 +22,19 @@
             <span>Filip Biskupski</span>
           </a>
           <div class="nav-links">
-            <a href="./">O mnie</a>
-            <a href="contact.html">Kontakt</a>
+            <a href="./" data-i18n="nav_about">O mnie</a>
+            <a href="contact.html" data-i18n="nav_contact">Kontakt</a>
+            <div
+              class="lang-switch"
+              role="group"
+              aria-label="Language"
+              data-i18n-aria-label="lang_label"
+            >
+              <button class="lang-btn" type="button" data-lang="pl">PL</button>
+              <button class="lang-btn" type="button" data-lang="en">EN</button>
+            </div>
             <button class="theme-toggle" type="button" data-theme-toggle>
-              Theme
+              <span data-i18n="nav_theme">Motyw</span>
             </button>
           </div>
         </nav>
@@ -37,39 +46,58 @@
         <div class="container">
           <div class="hero-grid">
             <div class="card pad">
-              <h1>Startup founder. Rocznik&nbsp;2010.</h1>
+              <h1 data-i18n="hero_title">Startup founder. Rocznik&nbsp;2010.</h1>
               <p class="lead">
-                Prowadzę startup pod
+                <span data-i18n="hero_lead_before">Prowadzę startup pod</span>
                 <a href="https://qrtransfers.com" target="_blank" rel="noreferrer"
                   ><strong>qrtransfers.com</strong></a
-                >. Lubię rozumieć systemy od środka, budować nowe projekty i
-                automatyzować pracę w praktyczny, pozytywny sposób.
+                >.
+                <span data-i18n="hero_lead_after"
+                  >Lubię rozumieć systemy od środka, budować nowe projekty i
+                  automatyzować pracę w praktyczny, pozytywny sposób.</span
+                >
               </p>
 
               <div class="pill-row" aria-label="Highlights">
                 <span class="pill"><span class="spark"></span>QR Transfers</span>
-                <span class="pill"><span class="spark"></span>2× Finalista OIJ</span>
-                <span class="pill"><span class="spark"></span>Mat‑Fiz‑Inf</span>
-                <span class="pill"><span class="spark"></span>Warszawa</span>
+                <span class="pill"
+                  ><span class="spark"></span><span data-i18n="pill_oij"
+                    >2× Finalista OIJ</span
+                  ></span
+                >
+                <span class="pill"
+                  ><span class="spark"></span><span data-i18n="pill_profile"
+                    >Mat‑Fiz‑Inf</span
+                  ></span
+                >
+                <span class="pill"
+                  ><span class="spark"></span><span data-i18n="pill_city"
+                    >Warszawa</span
+                  ></span
+                >
               </div>
 
               <div class="buttons">
-                <a class="button primary" href="contact.html">Kontakt (EN)</a>
-                <a class="button" href="#timeline">Oś czasu</a>
+                <a class="button primary" href="contact.html" data-i18n="hero_btn_contact"
+                  >Kontakt</a
+                >
+                <a class="button" href="#timeline" data-i18n="hero_btn_timeline"
+                  >Oś czasu</a
+                >
               </div>
 
               <p
                 class="muted typewriter"
                 data-typewriter
-                data-phrases='["Buduję QR Transfers","Uczę się systemów od środka","Automatyzuję i tworzę nowe projekty","Lubię debaty i mocne argumenty"]'
               >
-                Aktualnie: <span class="typewriter-text"></span
+                <span data-i18n="type_prefix">Aktualnie:</span>
+                <span class="typewriter-text"></span
                 ><span class="caret" aria-hidden="true"></span>
               </p>
             </div>
 
             <aside class="card pad">
-              <h2 style="margin-top: 0">W skrócie</h2>
+              <h2 style="margin-top: 0" data-i18n="quick_title">W skrócie</h2>
               <ul class="list">
                 <li>
                   Startup:
@@ -77,17 +105,21 @@
                     >qrtransfers.com</a
                   >
                 </li>
-                <li>
-                  Edukacja: LO im. Stanisława Staszica w Warszawie (od
-                  1.09.2025) — profil mat‑fiz‑inf
+                <li data-i18n="quick_edu">
+                  Edukacja: LO im. Stanisława Staszica w Warszawie (od 1.09.2025)
+                  — profil mat‑fiz‑inf
                 </li>
-                <li>
+                <li data-i18n="quick_prev">
                   Wcześniej: niepubliczna szkoła im. Juliusza Verne’a w Warszawie
                 </li>
-                <li>Podstawówka: ukończona ze średnią 5,8 (czerwiec 2025)</li>
-                <li>Olimpiady: 2× finalista Olimpiady Informatycznej Juniorów</li>
+                <li data-i18n="quick_primary">
+                  Podstawówka: ukończona ze średnią 5,8 (czerwiec 2025)
+                </li>
+                <li data-i18n="quick_olympiads">
+                  Olimpiady: 2× finalista Olimpiady Informatycznej Juniorów
+                </li>
               </ul>
-              <p class="muted" style="margin: 12px 0 0">
+              <p class="muted" style="margin: 12px 0 0" data-i18n="quick_p">
                 Interesują mnie debaty, informatyka (różne dziedziny) i
                 budowanie produktów — od pomysłu do działającego systemu.
               </p>
@@ -104,7 +136,7 @@
                 <span class="stat-number" data-counter data-from="0" data-to="2">2</span>
                 <span class="stat-suffix">×</span>
               </div>
-              <div class="stat-label">Finalista OIJ</div>
+              <div class="stat-label" data-i18n="stat_oij">Finalista OIJ</div>
             </div>
             <div class="card pad stat">
               <div class="stat-value">
@@ -117,7 +149,7 @@
                   >5.8</span
                 >
               </div>
-              <div class="stat-label">Średnia (podstawówka)</div>
+              <div class="stat-label" data-i18n="stat_avg">Średnia (podstawówka)</div>
             </div>
             <div class="card pad stat">
               <div class="stat-value">
@@ -125,7 +157,7 @@
                   >2010</span
                 >
               </div>
-              <div class="stat-label">Rocznik</div>
+              <div class="stat-label" data-i18n="stat_birth">Rocznik</div>
             </div>
             <div class="card pad stat">
               <div class="stat-value">
@@ -133,7 +165,7 @@
                   >2025</span
                 >
               </div>
-              <div class="stat-label">Start QR Transfers</div>
+              <div class="stat-label" data-i18n="stat_qr">Start QR Transfers</div>
             </div>
           </div>
         </div>
@@ -141,30 +173,34 @@
 
       <section class="section" id="o-mnie">
         <div class="container">
-          <h2>O mnie</h2>
+          <h2 data-i18n="about_h2">O mnie</h2>
           <div class="grid-2">
             <div class="card pad">
-              <h3 style="margin: 0 0 10px">Kim jestem</h3>
-              <p class="muted" style="margin: 0">
+              <h3 style="margin: 0 0 10px" data-i18n="about_who_h3">Kim jestem</h3>
+              <p class="muted" style="margin: 0" data-i18n="about_who_p1">
                 Jestem founderem startupu i uczniem z Warszawy. Aktualnie prowadzę
                 QR Transfers oraz rozwijam się w kierunku inżynierii oprogramowania
                 i budowania produktów.
               </p>
-              <p class="muted" style="margin: 12px 0 0">
+              <p class="muted" style="margin: 12px 0 0" data-i18n="about_who_p2">
                 Byłem 2‑krotnym finalistą Olimpiady Informatycznej Juniorów
                 (w 7. i 8. klasie).
               </p>
             </div>
             <div class="card pad">
-              <h3 style="margin: 0 0 10px">Jak myślę i działam</h3>
-              <p class="muted" style="margin: 0">
+              <h3 style="margin: 0 0 10px" data-i18n="about_how_h3">
+                Jak myślę i działam
+              </h3>
+              <p class="muted" style="margin: 0" data-i18n="about_how_p">
                 Mój tok myślenia opiera się na zrozumieniu tego, jak coś działa.
                 Lubię poznawać systemy “od środka” i upraszczać procesy.
               </p>
               <ul class="list">
-                <li>Automatyzuję pracę tam, gdzie ma to sens</li>
-                <li>Buduję prototypy szybko, ale z myślą o jakości</li>
-                <li>Najlepiej uczę się, gdy mogę coś zbudować i przetestować</li>
+                <li data-i18n="about_how_li1">Automatyzuję pracę tam, gdzie ma to sens</li>
+                <li data-i18n="about_how_li2">Buduję prototypy szybko, ale z myślą o jakości</li>
+                <li data-i18n="about_how_li3">
+                  Najlepiej uczę się, gdy mogę coś zbudować i przetestować
+                </li>
               </ul>
             </div>
           </div>
@@ -173,18 +209,20 @@
 
       <section class="section" id="timeline">
         <div class="container">
-          <h2>Oś czasu</h2>
+          <h2 data-i18n="timeline_h2">Oś czasu</h2>
           <ol class="timeline" aria-label="Timeline">
             <li class="timeline-item">
               <span class="timeline-dot" aria-hidden="true"></span>
               <div class="card pad timeline-card">
                 <div class="timeline-top">
-                  <span class="timeline-date">wrz 2017</span>
-                  <span class="timeline-title"
+                  <span class="timeline-date" data-i18n="t1_date">wrz 2017</span>
+                  <span class="timeline-title" data-i18n="t1_title"
                     >Start: niepubliczna szkoła im. Juliusza Verne’a (Warszawa)</span
                   >
                 </div>
-                <p class="muted" style="margin: 10px 0 0">Szkoła podstawowa.</p>
+                <p class="muted" style="margin: 10px 0 0" data-i18n="t1_desc">
+                  Szkoła podstawowa.
+                </p>
               </div>
             </li>
 
@@ -192,8 +230,8 @@
               <span class="timeline-dot" aria-hidden="true"></span>
               <div class="card pad timeline-card">
                 <div class="timeline-top">
-                  <span class="timeline-date">2023/2024</span>
-                  <span class="timeline-title">Finalista OIJ (7. klasa)</span>
+                  <span class="timeline-date" data-i18n="t2_date">2023/2024</span>
+                  <span class="timeline-title" data-i18n="t2_title">Finalista OIJ (7. klasa)</span>
                 </div>
               </div>
             </li>
@@ -202,8 +240,8 @@
               <span class="timeline-dot" aria-hidden="true"></span>
               <div class="card pad timeline-card">
                 <div class="timeline-top">
-                  <span class="timeline-date">2024/2025</span>
-                  <span class="timeline-title">Finalista OIJ (8. klasa)</span>
+                  <span class="timeline-date" data-i18n="t3_date">2024/2025</span>
+                  <span class="timeline-title" data-i18n="t3_title">Finalista OIJ (8. klasa)</span>
                 </div>
               </div>
             </li>
@@ -212,8 +250,8 @@
               <span class="timeline-dot" aria-hidden="true"></span>
               <div class="card pad timeline-card">
                 <div class="timeline-top">
-                  <span class="timeline-date">cze 2025</span>
-                  <span class="timeline-title"
+                  <span class="timeline-date" data-i18n="t4_date">cze 2025</span>
+                  <span class="timeline-title" data-i18n="t4_title"
                     >Ukończenie podstawówki (średnia 5,8) — szkoła im. Juliusza Verne’a</span
                   >
                 </div>
@@ -224,15 +262,15 @@
               <span class="timeline-dot" aria-hidden="true"></span>
               <div class="card pad timeline-card">
                 <div class="timeline-top">
-                  <span class="timeline-date">2025</span>
-                  <span class="timeline-title"
-                    >Start QR Transfers —
+                  <span class="timeline-date" data-i18n="t5_date">2025</span>
+                  <span class="timeline-title">
+                    <span data-i18n="t5_title_before">Start QR Transfers —</span>
                     <a href="https://qrtransfers.com" target="_blank" rel="noreferrer"
                       >qrtransfers.com</a
-                    ></span
-                  >
+                    >
+                  </span>
                 </div>
-                <p class="muted" style="margin: 10px 0 0">
+                <p class="muted" style="margin: 10px 0 0" data-i18n="t5_desc">
                   Bez dokładnej daty — 2025 rok.
                 </p>
               </div>
@@ -242,8 +280,8 @@
               <span class="timeline-dot" aria-hidden="true"></span>
               <div class="card pad timeline-card">
                 <div class="timeline-top">
-                  <span class="timeline-date">1 wrz 2025</span>
-                  <span class="timeline-title"
+                  <span class="timeline-date" data-i18n="t6_date">1 wrz 2025</span>
+                  <span class="timeline-title" data-i18n="t6_title"
                     >Start LO im. Stanisława Staszica w Warszawie (profil mat‑fiz‑inf)</span
                   >
                 </div>
@@ -255,29 +293,37 @@
 
       <section class="section">
         <div class="container">
-          <h2>Wyróżnienia i zainteresowania</h2>
+          <h2 data-i18n="awards_h2">Wyróżnienia i zainteresowania</h2>
           <div class="grid-2">
             <div class="card pad">
-              <h3 style="margin: 0 0 10px">Wyróżnienia</h3>
+              <h3 style="margin: 0 0 10px" data-i18n="honors_h3">Wyróżnienia</h3>
               <ul class="list">
-                <li>2× finalista Olimpiady Informatycznej Juniorów (klasa 7 i 8)</li>
-                <li>Wielokrotnie wyróżniony w Kangurze Matematycznym</li>
-                <li>Wielokrotnie wyróżniony w konkursie logicznego myślenia</li>
+                <li data-i18n="honors_li1">
+                  2× finalista Olimpiady Informatycznej Juniorów (klasa 7 i 8)
+                </li>
+                <li data-i18n="honors_li2">
+                  Wielokrotnie wyróżniony w Kangurze Matematycznym
+                </li>
+                <li data-i18n="honors_li3">
+                  Wielokrotnie wyróżniony w konkursie logicznego myślenia
+                </li>
               </ul>
             </div>
             <div class="card pad">
-              <h3 style="margin: 0 0 10px">Co mnie kręci</h3>
+              <h3 style="margin: 0 0 10px" data-i18n="interests_h3">Co mnie kręci</h3>
               <ul class="list">
-                <li>Debaty i logiczne argumentowanie</li>
-                <li>Informatyka (różne dziedziny) i startupy</li>
-                <li>Rozumienie systemów “od środka”</li>
-                <li>Automatyzacje, narzędzia, nowe projekty</li>
+                <li data-i18n="interests_li1">Debaty i logiczne argumentowanie</li>
+                <li data-i18n="interests_li2">Informatyka (różne dziedziny) i startupy</li>
+                <li data-i18n="interests_li3">Rozumienie systemów “od środka”</li>
+                <li data-i18n="interests_li4">Automatyzacje, narzędzia, nowe projekty</li>
               </ul>
             </div>
           </div>
 
           <div class="buttons" style="margin-top: 16px">
-            <a class="button primary" href="contact.html">Napisz do mnie</a>
+            <a class="button primary" href="contact.html" data-i18n="write_btn"
+              >Napisz do mnie</a
+            >
             <a class="button" href="https://qrtransfers.com" target="_blank" rel="noreferrer"
               >QR Transfers</a
             >
