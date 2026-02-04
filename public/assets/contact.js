@@ -47,7 +47,7 @@
       job_offer: "Oferta pracy",
       websites: "Strony",
       startup: "Startup",
-      advising: "Advising",
+      advising: "Doradztwo",
       other: "Inne"
     },
     en: {

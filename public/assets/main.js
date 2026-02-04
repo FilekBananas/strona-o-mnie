@@ -24,7 +24,7 @@
       page_title_about: "Filip Biskupski — O mnie",
       page_title_contact: "Kontakt — Filip Biskupski",
       meta_about:
-        "Startup founder (rocznik 2010). Tworzę QR Transfers i lubię rozumieć systemy od środka.",
+        "Startup founder. Tworzę QR Transfers i lubię rozumieć systemy od środka.",
       meta_contact: "Strona kontaktu z formularzem.",
 
       nav_about: "O mnie",
@@ -37,7 +37,7 @@
       theme_to_light: "Przełącz na jasny motyw",
       last_updated: "Aktualizacja",
 
-      hero_title: "Startup founder. Rocznik 2010.",
+      hero_title: "Startup founder. Buduję QR Transfers.",
       hero_lead_before: "Prowadzę startup pod",
       hero_lead_after:
         "Lubię rozumieć systemy od środka, budować nowe projekty i automatyzować pracę w praktyczny, pozytywny sposób.",
@@ -66,7 +66,7 @@
 
       stat_oij: "Finalista OIJ",
       stat_avg: "Średnia (podstawówka)",
-      stat_birth: "Rocznik",
+      stat_polish: "Język polski",
       stat_qr: "Start QR Transfers",
 
       about_h2: "O mnie",
@@ -100,9 +100,13 @@
       t6_title:
         "Start LO im. Stanisława Staszica w Warszawie (profil mat‑fiz‑inf)",
 
-      awards_h2: "Wyróżnienia i zainteresowania",
-      honors_h3: "Wyróżnienia",
+      awards_h2: "Osiągnięcia i zainteresowania",
+      honors_h3: "Osiągnięcia",
       honors_li1: "2× finalista Olimpiady Informatycznej Juniorów (klasa 7 i 8)",
+      honors_li4:
+        "Zakwalifikowałem się do finału mazowieckiego konkursu informatycznego LOGIA",
+      honors_li5: "Zakwalifikowałem się do 2. etapu Olimpiady Matematycznej",
+      honors_li6: "100% z języka polskiego",
       honors_li2: "Wielokrotnie wyróżniony w Kangurze Matematycznym",
       honors_li3: "Wielokrotnie wyróżniony w konkursie logicznego myślenia",
       interests_h3: "Co mnie kręci",
@@ -111,6 +115,26 @@
       interests_li3: "Rozumienie systemów “od środka”",
       interests_li4: "Automatyzacje, narzędzia, nowe projekty",
       write_btn: "Napisz do mnie",
+
+      goal_h2: "Cel i wartości",
+      goal_h3: "Zmienianie świata na lepszy",
+      goal_p1:
+        "Moim celem jest zmieniać świat na lepszy. Wierzę, że największy realny wpływ mogę mieć, budując startupy i produkty, które poprawiają życie ludzi.",
+      goal_p2:
+        "Dlatego stawiam na zrozumienie “jak to działa”, szybkie prototypowanie i iterowanie aż do działającego systemu.",
+
+      lead_h3: "Wolontariat i liderstwo",
+      lead_li1: "Brałem udział w wielu wolontariatach",
+      lead_li2: "W podstawówce byłem wiceprzewodniczącym szkoły (samorządu uczniowskiego)",
+      lead_li3: "Lubię działać w zespole i brać odpowiedzialność",
+
+      sport_h3: "Sport",
+      sport_li1: "Uwielbiam sport i zdrową rywalizację",
+      sport_li2: "Trenowałem tenis stołowy — liczne sukcesy w turniejach dzielnicowych",
+      sport_li3: "Trenuję tenis i narciarstwo",
+
+      social_h3: "Social media",
+      social_p: "Możesz znaleźć mnie tutaj:",
 
       contact_h1: "Pogadajmy.",
       contact_lead: "Napisz krótką wiadomość — otworzy się gotowy mail do wysłania.",
@@ -123,7 +147,7 @@
       cat_job_offer: "Oferta pracy",
       cat_websites: "Strony",
       cat_startup: "Startup",
-      cat_advising: "Advising",
+      cat_advising: "Doradztwo",
       cat_other: "Inne",
       title_label: "Tytuł",
       desc_label: "Opis",
@@ -137,7 +161,7 @@
       page_title_about: "Filip Biskupski — About",
       page_title_contact: "Contact — Filip Biskupski",
       meta_about:
-        "Startup founder (born in 2010). Building QR Transfers and learning systems from the inside out.",
+        "Startup founder. Building QR Transfers and learning systems from the inside out.",
       meta_contact: "Contact page with a simple form.",
 
       nav_about: "About",
@@ -150,7 +174,7 @@
       theme_to_light: "Switch to light theme",
       last_updated: "Updated",
 
-      hero_title: "Startup founder. Born in 2010.",
+      hero_title: "Startup founder. Building QR Transfers.",
       hero_lead_before: "I run a startup at",
       hero_lead_after:
         "I like understanding systems from the inside, building new projects, and automating work in a practical, positive way.",
@@ -179,7 +203,7 @@
 
       stat_oij: "OIJ finalist",
       stat_avg: "Average grade",
-      stat_birth: "Born",
+      stat_polish: "Polish language",
       stat_qr: "QR Transfers started",
 
       about_h2: "About",
@@ -212,9 +236,12 @@
       t6_title:
         "Started Stanisław Staszic High School (Warsaw) — math/physics/CS track",
 
-      awards_h2: "Honors & interests",
-      honors_h3: "Honors",
+      awards_h2: "Achievements & interests",
+      honors_h3: "Achievements",
       honors_li1: "2× Junior Informatics Olympiad finalist (grades 7 & 8)",
+      honors_li4: "Qualified for the final of the Mazovian informatics contest LOGIA",
+      honors_li5: "Qualified for the 2nd stage of the Mathematical Olympiad",
+      honors_li6: "100% in Polish language",
       honors_li2: "Multiple distinctions in the Kangaroo Math contest",
       honors_li3: "Multiple distinctions in a logical thinking contest",
       interests_h3: "What I’m into",
@@ -223,6 +250,26 @@
       interests_li3: "Understanding systems from the inside",
       interests_li4: "Automation, tools, new projects",
       write_btn: "Write to me",
+
+      goal_h2: "Goal & values",
+      goal_h3: "Making the world better",
+      goal_p1:
+        "My goal is to make the world better. I believe the biggest real impact I can have as an individual is by building startups and products that improve people’s lives.",
+      goal_p2:
+        "That’s why I focus on understanding how things work, prototyping fast, and iterating until it becomes a solid system.",
+
+      lead_h3: "Volunteering & leadership",
+      lead_li1: "I’ve taken part in many volunteering initiatives",
+      lead_li2: "In primary school, I was the vice‑chair of the student council",
+      lead_li3: "I enjoy teamwork and taking responsibility",
+
+      sport_h3: "Sports",
+      sport_li1: "I love sports and healthy competition",
+      sport_li2: "I trained table tennis — multiple successes in district tournaments",
+      sport_li3: "I train tennis and skiing",
+
+      social_h3: "Social media",
+      social_p: "You can find me here:",
 
       contact_h1: "Let’s talk.",
       contact_lead: "Send a short message — it will open a ready email draft to send.",

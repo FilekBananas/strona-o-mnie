@@ -587,9 +587,13 @@ select {
   background: color-mix(in srgb, var(--bg1) 82%, var(--card));
 }
 
+select:invalid {
+  color: var(--muted);
+}
+
 select option {
-  background: var(--bg1);
-  color: var(--text);
+  background: #ffffff;
+  color: #111827;
 }
 
 textarea {
