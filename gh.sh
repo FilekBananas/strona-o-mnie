@@ -16,6 +16,7 @@ BRANCH_MAIN="${BRANCH_MAIN:-main}"
 PAGES_BRANCH="${PAGES_BRANCH:-gh-pages}"
 COMMIT_MSG="${COMMIT_MSG:-deploy}"
 PREFIX_DIR="${PREFIX_DIR:-public}"
+FORCE_MAIN_PUSH="${FORCE_MAIN_PUSH:-0}"
 
 if ! command -v git >/dev/null 2>&1; then
   echo "Error: git not found."
@@ -49,7 +50,36 @@ if ! git diff --cached --quiet; then
 fi
 
 git branch -M "$BRANCH_MAIN"
-if ! git push -u "$REMOTE_NAME" "$BRANCH_MAIN"; then
+push_main() {
+  if [[ "$FORCE_MAIN_PUSH" == "1" ]]; then
+    git push -u -f "$REMOTE_NAME" "$BRANCH_MAIN"
+  else
+    git push -u "$REMOTE_NAME" "$BRANCH_MAIN"
+  fi
+}
+
+if ! push_main; then
+  echo "Main push rejected. Trying to rebase onto remote '$REMOTE_NAME/$BRANCH_MAIN'…"
+  git fetch "$REMOTE_NAME" "$BRANCH_MAIN" || true
+  if git pull --rebase "$REMOTE_NAME" "$BRANCH_MAIN"; then
+    push_main
+  else
+    cat <<EOF
+
+Rebase failed (probably conflicts).
+
+Options:
+1) Resolve conflicts, then run: git rebase --continue
+2) Abort rebase:            git rebase --abort
+3) If you want to overwrite the remote main branch:
+     FORCE_MAIN_PUSH=1 bash gh.sh
+
+EOF
+    exit 1
+  fi
+fi
+
+if ! git rev-parse --verify "$BRANCH_MAIN" >/dev/null 2>&1; then
   cat <<EOF
 
 Push failed.
