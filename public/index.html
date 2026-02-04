@@ -13,6 +13,7 @@
     <script defer src="assets/main.js"></script>
   </head>
   <body>
+    <a class="skip" href="#main">Przejdź do treści</a>
     <header class="site-header">
       <div class="container">
         <nav class="nav" aria-label="Primary" data-nav>
@@ -31,7 +32,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="hero">
         <div class="container">
           <div class="hero-grid">
@@ -56,6 +57,15 @@
                 <a class="button primary" href="contact.html">Kontakt (EN)</a>
                 <a class="button" href="#timeline">Oś czasu</a>
               </div>
+
+              <p
+                class="muted typewriter"
+                data-typewriter
+                data-phrases='["Buduję QR Transfers","Uczę się systemów od środka","Automatyzuję i tworzę nowe projekty","Lubię debaty i mocne argumenty"]'
+              >
+                Aktualnie: <span class="typewriter-text"></span
+                ><span class="caret" aria-hidden="true"></span>
+              </p>
             </div>
 
             <aside class="card pad">
@@ -82,6 +92,49 @@
                 budowanie produktów — od pomysłu do działającego systemu.
               </p>
             </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Stats">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="card pad stat">
+              <div class="stat-value">
+                <span class="stat-number" data-counter data-from="0" data-to="2">2</span>
+                <span class="stat-suffix">×</span>
+              </div>
+              <div class="stat-label">Finalista OIJ</div>
+            </div>
+            <div class="card pad stat">
+              <div class="stat-value">
+                <span
+                  class="stat-number"
+                  data-counter
+                  data-from="0"
+                  data-to="5.8"
+                  data-decimals="1"
+                  >5.8</span
+                >
+              </div>
+              <div class="stat-label">Średnia (podstawówka)</div>
+            </div>
+            <div class="card pad stat">
+              <div class="stat-value">
+                <span class="stat-number" data-counter data-from="2000" data-to="2010"
+                  >2010</span
+                >
+              </div>
+              <div class="stat-label">Rocznik</div>
+            </div>
+            <div class="card pad stat">
+              <div class="stat-value">
+                <span class="stat-number" data-counter data-from="2020" data-to="2025"
+                  >2025</span
+                >
+              </div>
+              <div class="stat-label">Start QR Transfers</div>
+            </div>
           </div>
         </div>
       </section>
@@ -237,7 +290,7 @@
       <div class="container">
         <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
           <span>© <span id="y"></span> Filip Biskupski</span>
-          <span class="muted">Built with HTML/CSS/JS</span>
+          <span class="muted" id="last-updated"></span>
         </div>
       </div>
     </footer>
