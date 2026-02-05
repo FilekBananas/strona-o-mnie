@@ -25,7 +25,7 @@
       page_title_contact: "Kontakt — Filip Biskupski",
       meta_about:
         "Startup founder. Tworzę QR Transfers i lubię rozumieć systemy od środka.",
-      meta_contact: "Strona kontaktu z formularzem.",
+      meta_contact: "Strona kontaktu z adresem email.",
 
       nav_about: "O mnie",
       nav_contact: "Kontakt",
@@ -106,6 +106,12 @@
       build_li2: "Automatyzacje, które oszczędzają czas na co dzień",
       build_li3: "Dobre podstawy: prostota, bezpieczeństwo, stabilność",
 
+      beyond_h3: "Poza kodem",
+      beyond_p1:
+        "Jestem przeciwnikiem systemu i uważam, że w obecnej formie potrafi zabijać mnie i innych — dlatego staram się mu przeciwstawiać, budując rzeczy, które dają ludziom więcej wolności i sprawczości.",
+      beyond_p2:
+        "Lubię też czytać liczne książki — to mój sposób na poszerzanie perspektywy i dokładanie kolejnych “narzędzi do myślenia”.",
+
       timeline_h2: "Oś czasu",
       t1_date: "wrz 2017",
       t1_title: "Start: niepubliczna szkoła im. Juliusza Verne’a (Warszawa)",
@@ -171,7 +177,10 @@
       social_p: "Możesz znaleźć mnie tutaj:",
 
       contact_h1: "Pogadajmy.",
-      contact_lead: "Napisz krótką wiadomość — otworzy się gotowy mail do wysłania.",
+      contact_lead: "Najprościej: napisz maila — adres znajdziesz po prawej.",
+      contact_email_h2: "Email",
+      contact_email_p: "Kliknij adres poniżej, żeby otworzyć nową wiadomość.",
+      contact_email_note: "Odpisuję, gdy tylko mogę.",
       contact_form_h2: "Formularz kontaktu",
       first_name: "Imię",
       last_name: "Nazwisko",
@@ -196,7 +205,7 @@
       page_title_contact: "Contact — Filip Biskupski",
       meta_about:
         "Startup founder. Building QR Transfers and learning systems from the inside out.",
-      meta_contact: "Contact page with a simple form.",
+      meta_contact: "Contact page with an email address.",
 
       nav_about: "About",
       nav_contact: "Contact",
@@ -277,6 +286,12 @@
       build_li2: "Automation that saves time daily",
       build_li3: "Strong basics: simplicity, security, stability",
 
+      beyond_h3: "Beyond code",
+      beyond_p1:
+        "I’m against the system — I believe that in its current form it can kill me and others, so I try to push back by building things that give people more freedom and agency.",
+      beyond_p2:
+        "I also like reading lots of books — it’s my way of widening my perspective and adding new “tools for thinking”.",
+
       timeline_h2: "Timeline",
       t1_date: "Sep 2017",
       t1_title: "Started: Julius Verne private school (Warsaw)",
@@ -340,7 +355,10 @@
       social_p: "You can find me here:",
 
       contact_h1: "Let’s talk.",
-      contact_lead: "Send a short message — it will open a ready email draft to send.",
+      contact_lead: "The easiest way is email — you’ll find the address on the right.",
+      contact_email_h2: "Email",
+      contact_email_p: "Click the address below to open a new email.",
+      contact_email_note: "I reply as soon as I can.",
       contact_form_h2: "Contact form",
       first_name: "First name",
       last_name: "Last name",

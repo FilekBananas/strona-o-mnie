@@ -384,18 +384,30 @@ textarea:focus-visible {
   font-size: 13px;
   line-height: 1.5;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 6px;
   align-items: baseline;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.typewriter [data-i18n="type_prefix"] {
+  flex: 0 0 auto;
 }
 
 .typewriter-text {
   color: var(--text);
   font-weight: 560;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .caret {
   display: inline-block;
+  flex: 0 0 auto;
   width: 10px;
   height: 1.1em;
   border-left: 2px solid color-mix(in srgb, var(--muted) 80%, transparent);

@@ -13,11 +13,11 @@ python3 -m http.server --directory public 3000
 ## Pages
 
 - `public/index.html` — About (PL/EN)
-- `public/contact.html` — Contact (PL/EN) + form
+- `public/contact.html` — Contact (PL/EN) + email
 
 ## Notes
 
-- The contact form does not send email automatically — it opens the user’s mail client.
+- The site is static — the Contact page just shows an email address (no backend).
 
 ## Deploy (GitHub Pages)
 
