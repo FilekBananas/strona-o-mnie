@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Deploy the static site in `public/` to GitHub Pages.
+# Deploy the static site in this repo root to GitHub Pages.
 #
 # Target:
 # - GitHub user: FilekBananas
@@ -15,16 +15,21 @@ REMOTE_URL="${REMOTE_URL:-https://github.com/${GITHUB_USER}/${REPO_NAME}.git}"
 BRANCH_MAIN="${BRANCH_MAIN:-main}"
 PAGES_BRANCH="${PAGES_BRANCH:-gh-pages}"
 COMMIT_MSG="${COMMIT_MSG:-deploy}"
-PREFIX_DIR="${PREFIX_DIR:-public}"
 FORCE_MAIN_PUSH="${FORCE_MAIN_PUSH:-0}"
+DEPLOY_PAGES="${DEPLOY_PAGES:-1}"
 
 if ! command -v git >/dev/null 2>&1; then
   echo "Error: git not found."
   exit 1
 fi
 
-if [[ ! -d "$PREFIX_DIR" ]]; then
-  echo "Error: missing '$PREFIX_DIR/' directory."
+if [[ ! -f "index.html" ]]; then
+  echo "Error: missing 'index.html'."
+  exit 1
+fi
+
+if [[ ! -d "assets" ]]; then
+  echo "Error: missing 'assets/' directory."
   exit 1
 fi
 
@@ -95,14 +100,10 @@ EOF
   exit 1
 fi
 
-# Deploy only the `public/` folder to the Pages branch.
-#
-# NOTE: this FORCE UPDATES the gh-pages branch.
-tmp_branch="__pages_tmp__"
-git branch -D "$tmp_branch" >/dev/null 2>&1 || true
-git subtree split --prefix "$PREFIX_DIR" -b "$tmp_branch"
-git push -f "$REMOTE_NAME" "$tmp_branch:$PAGES_BRANCH"
-git branch -D "$tmp_branch" >/dev/null 2>&1 || true
+if [[ "$DEPLOY_PAGES" == "1" ]]; then
+  # Deploy by force-updating the Pages branch with the current main branch.
+  git push -f "$REMOTE_NAME" "$BRANCH_MAIN:$PAGES_BRANCH"
+fi
 
 echo "Done."
 echo "If needed, enable GitHub Pages: Settings → Pages → Deploy from branch → $PAGES_BRANCH / (root)."

@@ -1,19 +1,19 @@
 # fiip.biskupski.site
 
-100% static personal website (HTML/CSS/JS). The contact form opens a pre-filled email in the user’s email app (`mailto:`).
+100% static personal website (HTML/CSS/JS).
 
 ## Run locally
 
-Open `public/index.html` directly, or serve the `public/` folder with any static server, e.g.:
+Open `index.html` directly, or serve the folder with any static server, e.g.:
 
 ```bash
-python3 -m http.server --directory public 3000
+python3 -m http.server 3000
 ```
 
 ## Pages
 
-- `public/index.html` — About (PL/EN)
-- `public/contact.html` — Contact (PL/EN) + email
+- `index.html` — About (PL/EN)
+- `contact.html` — Contact (PL/EN) + email
 
 ## Notes
 
