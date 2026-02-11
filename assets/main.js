@@ -37,7 +37,7 @@
       theme_to_light: "Przełącz na jasny motyw",
       last_updated: "Aktualizacja",
 
-      hero_title: "Startup founder. Buduję QR Transfers.",
+      hero_title: "Startup founder. Buduję produkty i systemy.",
       hero_lead_before: "Prowadzę startup pod",
       hero_lead_after:
         "Lubię rozumieć systemy od środka, budować nowe projekty i automatyzować pracę w praktyczny, pozytywny sposób — tak, żeby skupiać się na tym, co naprawdę ważne.",
@@ -217,7 +217,7 @@
       theme_to_light: "Switch to light theme",
       last_updated: "Updated",
 
-      hero_title: "Startup founder. Building QR Transfers.",
+      hero_title: "Startup founder. I build products and systems.",
       hero_lead_before: "I run a startup at",
       hero_lead_after:
         "I like understanding systems from the inside, building new projects, and automating work in a practical, positive way — so I can focus on what matters most.",
