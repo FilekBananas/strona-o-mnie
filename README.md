@@ -13,11 +13,14 @@ python3 -m http.server 3000
 ## Pages
 
 - `index.html` — About (PL/EN)
-- `contact.html` — Contact (PL/EN) + email
+- `contact.html` — Contact (PL/EN) + email + form (LICZNIK)
+- `pv/wiadomosci/index.html` — Form submissions viewer (LICZNIK)
+- `staty/index.html` — Traffic stats (LICZNIK, `?from=...`)
 
 ## Notes
 
-- The site is static — the Contact page just shows an email address (no backend).
+- The site is static (GitHub Pages). Any “backend” features use external APIs (LICZNIK).
+- `/pv/wiadomosci` reads the LICZNIK API key from localStorage (`filip-biskupski-site-licznik-api-key`).
 
 ## Deploy (GitHub Pages)
 

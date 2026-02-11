@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="google-site-verification"
+      content="9iDPImNNxenSgaQi-8SzLsZ8Kzjgo5_tz31RlFveE-A"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Staty — Filip Biskupski</title>
+    <meta name="description" content="Statystyki wejść i źródeł ruchu." />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script>
+      window.LICZNIK_API_KEY = "jDIw(@#wdF2r4";
+    </script>
+    <script defer src="../assets/main.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main" data-i18n="skip">Przejdź do treści</a>
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Primary" data-nav>
+          <a class="brand" href="../">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Filip Biskupski</span>
+          </a>
+          <div class="nav-links">
+            <a href="../" data-i18n="nav_about">O mnie</a>
+            <a href="../contact.html" data-i18n="nav_contact">Kontakt</a>
+            <div
+              class="lang-switch"
+              role="group"
+              aria-label="Language"
+              data-i18n-aria-label="lang_label"
+            >
+              <button class="lang-btn" type="button" data-lang="pl">PL</button>
+              <button class="lang-btn" type="button" data-lang="en">EN</button>
+            </div>
+            <button class="theme-toggle" type="button" data-theme-toggle>
+              <span data-i18n="nav_theme">Motyw</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container">
+          <div class="card pad">
+            <h1 style="margin-top: 0" data-i18n="stats_h1">Statystyki</h1>
+            <p class="lead" data-i18n-html="stats_lead"></p>
+            <p class="muted" style="margin: 10px 0 0" data-i18n-html="stats_example"></p>
+            <div class="form-actions" style="margin-top: 14px">
+              <span class="status" id="stats-status"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Totals">
+        <div class="container">
+          <h2 data-i18n="stats_total_h2">Łącznie</h2>
+          <div class="stats-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr))">
+            <div class="card pad stat">
+              <div class="stat-value">
+                <span class="stat-number" id="stats-views">—</span>
+              </div>
+              <div class="stat-label" data-i18n="stats_views">Wyświetlenia</div>
+            </div>
+            <div class="card pad stat">
+              <div class="stat-value">
+                <span class="stat-number" id="stats-uniques">—</span>
+              </div>
+              <div class="stat-label" data-i18n="stats_uniques">Unikalne osoby</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Sources">
+        <div class="container">
+          <h2 data-i18n="stats_sources_h2">Źródła (from)</h2>
+          <div id="stats-sources" class="grid-2"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+          <span>© <span id="y"></span> Filip Biskupski</span>
+          <span class="muted" id="last-updated"></span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+

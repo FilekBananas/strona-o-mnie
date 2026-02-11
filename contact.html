@@ -14,6 +14,9 @@
     />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/styles.css" />
+    <script>
+      window.LICZNIK_API_KEY = "jDIw(@#wdF2r4";
+    </script>
     <script defer src="assets/main.js"></script>
   </head>
   <body>
@@ -93,6 +96,83 @@
                 I reply as soon as I can.
               </p>
             </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Contact form">
+        <div class="container">
+          <div class="card pad">
+            <h2 style="margin-top: 0" data-i18n="contact_form_h2">Contact form</h2>
+            <p class="muted" style="margin: 0" data-i18n="contact_form_p">
+              You can send me a message using this form (the easiest way). If you prefer, you can
+              always email me directly.
+            </p>
+
+            <form class="form" data-contact-form>
+              <div class="grid-2">
+                <div class="field">
+                  <label for="first_name" data-i18n="first_name">First name</label>
+                  <input id="first_name" name="first_name" type="text" autocomplete="given-name" required />
+                </div>
+                <div class="field">
+                  <label for="last_name" data-i18n="last_name">Last name</label>
+                  <input id="last_name" name="last_name" type="text" autocomplete="family-name" required />
+                </div>
+              </div>
+
+              <div class="grid-2">
+                <div class="field">
+                  <label for="email" data-i18n="email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required />
+                </div>
+                <div class="field">
+                  <label for="category" data-i18n="category">Category</label>
+                  <select id="category" name="category" required>
+                    <option value="" selected disabled data-i18n="category_placeholder">Select one…</option>
+                    <option value="job_offer" data-i18n="cat_job_offer">Job offer</option>
+                    <option value="websites" data-i18n="cat_websites">Websites</option>
+                    <option value="startup" data-i18n="cat_startup">Startup</option>
+                    <option value="advising" data-i18n="cat_advising">Advising</option>
+                    <option value="other" data-i18n="cat_other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="title" data-i18n="title_label">Title</label>
+                <input id="title" name="title" type="text" autocomplete="off" required />
+              </div>
+
+              <div class="field">
+                <label for="description" data-i18n="desc_label">Description</label>
+                <textarea
+                  id="description"
+                  name="description"
+                  data-i18n-placeholder="desc_ph"
+                  placeholder="A few lines are enough…"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="field hp" aria-hidden="true">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div class="form-actions">
+                <button class="button primary" type="submit" data-i18n="send_btn">Send</button>
+                <span class="status" id="contact-status" data-i18n="status_idle">Ready to send.</span>
+              </div>
+
+              <p class="muted" style="margin: 10px 0 0">
+                <a href="mailto:xyz908006@gmail.com" data-i18n="mailto_fallback"
+                  >If nothing happened, click here.</a
+                >
+                <span class="muted">·</span>
+                <a class="muted" href="pv/wiadomosci/">/pv/wiadomosci</a>
+              </p>
+            </form>
           </div>
         </div>
       </section>

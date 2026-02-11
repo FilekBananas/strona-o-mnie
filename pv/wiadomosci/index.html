@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="google-site-verification"
+      content="9iDPImNNxenSgaQi-8SzLsZ8Kzjgo5_tz31RlFveE-A"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wiadomości — Filip Biskupski</title>
+    <meta name="description" content="Podgląd wiadomości z formularza kontaktowego." />
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+    <script>
+      window.LICZNIK_API_KEY = "jDIw(@#wdF2r4";
+    </script>
+    <script defer src="../../assets/main.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main" data-i18n="skip">Przejdź do treści</a>
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Primary" data-nav>
+          <a class="brand" href="../../">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Filip Biskupski</span>
+          </a>
+          <div class="nav-links">
+            <a href="../../" data-i18n="nav_about">O mnie</a>
+            <a href="../../contact.html" data-i18n="nav_contact">Kontakt</a>
+            <div
+              class="lang-switch"
+              role="group"
+              aria-label="Language"
+              data-i18n-aria-label="lang_label"
+            >
+              <button class="lang-btn" type="button" data-lang="pl">PL</button>
+              <button class="lang-btn" type="button" data-lang="en">EN</button>
+            </div>
+            <button class="theme-toggle" type="button" data-theme-toggle>
+              <span data-i18n="nav_theme">Motyw</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container">
+          <div class="card pad">
+            <h1 style="margin-top: 0" data-i18n="pv_h1">Wiadomości</h1>
+            <p class="lead" data-i18n="pv_lead">
+              Tutaj możesz podejrzeć wszystkie wysyłki z formularza kontaktowego.
+            </p>
+
+            <div
+              class="stats-grid"
+              style="grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 560px"
+              aria-label="LICZNIK"
+            >
+              <div class="card pad stat">
+                <div class="stat-value">
+                  <span class="stat-number" id="pv-views">—</span>
+                </div>
+                <div class="stat-label" data-i18n="pv_views">Wyświetlenia</div>
+              </div>
+              <div class="card pad stat">
+                <div class="stat-value">
+                  <span class="stat-number" id="pv-uniques">—</span>
+                </div>
+                <div class="stat-label" data-i18n="pv_uniques">Unikalne osoby</div>
+              </div>
+            </div>
+
+            <div class="form" style="max-width: 760px">
+              <div class="field">
+                <label for="pv-key" data-i18n="pv_key_label">LICZNIK API key</label>
+                <input
+                  id="pv-key"
+                  type="password"
+                  autocomplete="off"
+                  data-i18n-placeholder="pv_key_ph"
+                  placeholder="Wklej klucz…"
+                />
+                <p class="muted" style="margin: 6px 0 0" data-i18n="pv_key_help">
+                  Klucz zapisuję lokalnie w tej przeglądarce (localStorage).
+                </p>
+              </div>
+
+              <div class="form-actions">
+                <button class="button primary" type="button" data-pv-save data-i18n="pv_save">
+                  Zapisz i wczytaj
+                </button>
+                <button class="button" type="button" data-pv-clear data-i18n="pv_clear">
+                  Wyczyść
+                </button>
+                <span class="status" id="pv-status"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Messages">
+        <div class="container">
+          <div id="pv-messages" class="grid-2"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+          <span>© <span id="y"></span> Filip Biskupski</span>
+          <span class="muted" id="last-updated"></span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

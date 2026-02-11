@@ -12,6 +12,11 @@
   const currentPath = window.location.pathname.replace(/\/+$/, "");
   const parts = currentPath.split("/").filter(Boolean);
   const currentFile = parts.length ? parts[parts.length - 1] : "";
+  const pvIndex = parts.indexOf("pv");
+  const isPv = pvIndex !== -1;
+  const isMessages = pvIndex !== -1 && parts[pvIndex + 1] === "wiadomosci";
+  const statsIndex = parts.indexOf("staty");
+  const isStats = statsIndex !== -1;
   const isContact =
     currentFile === "contact.html" ||
     currentFile === "contact" ||
@@ -23,9 +28,13 @@
     pl: {
       page_title_about: "Filip Biskupski — O mnie",
       page_title_contact: "Kontakt — Filip Biskupski",
+      page_title_messages: "Wiadomości — Filip Biskupski",
+      page_title_stats: "Staty — Filip Biskupski",
       meta_about:
         "Startup founder. Tworzę QR Transfers i lubię rozumieć systemy od środka.",
-      meta_contact: "Strona kontaktu z adresem email.",
+      meta_contact: "Kontakt: email i formularz.",
+      meta_messages: "Podgląd wiadomości z formularza kontaktowego.",
+      meta_stats: "Statystyki wejść i źródeł ruchu.",
 
       nav_about: "O mnie",
       nav_contact: "Kontakt",
@@ -177,11 +186,14 @@
       social_p: "Możesz znaleźć mnie tutaj:",
 
       contact_h1: "Pogadajmy.",
-      contact_lead: "Najprościej: napisz maila — adres znajdziesz po prawej.",
+      contact_lead:
+        "Możesz napisać maila albo skorzystać z formularza — wybierz, co wygodniejsze.",
       contact_email_h2: "Email",
       contact_email_p: "Kliknij adres poniżej, żeby otworzyć nową wiadomość.",
       contact_email_note: "Odpisuję, gdy tylko mogę.",
       contact_form_h2: "Formularz kontaktu",
+      contact_form_p:
+        "Możesz wysłać mi wiadomość przez formularz (to najwygodniejsze). Jeśli wolisz, zawsze możesz też napisać bezpośrednio na maila.",
       first_name: "Imię",
       last_name: "Nazwisko",
       email: "Email",
@@ -195,17 +207,63 @@
       title_label: "Tytuł",
       desc_label: "Opis",
       desc_ph: "Kilka zdań wystarczy…",
-      send_btn: "Otwórz maila",
-      status_idle: "Otworzy aplikację pocztową.",
-      mailto_fallback: "Jeśli nic się nie otworzyło, kliknij tutaj.",
-      back_about: "Wróć do O mnie"
+      send_btn: "Wyślij",
+      status_idle: "Gotowe do wysłania.",
+      status_sending: "Wysyłanie…",
+      status_ok: "Wysłano. Dzięki!",
+      status_error: "Nie udało się wysłać. Napisz maila.",
+      status_rate: "Chwila… spróbuj ponownie za moment.",
+      status_need_key: "Formularz jest chwilowo wyłączony — napisz maila.",
+      mailto_fallback: "Jeśli formularz nie działa, kliknij tutaj i wyślij maila.",
+      back_about: "Wróć do O mnie",
+
+      pv_h1: "Wiadomości",
+      pv_lead:
+        "Tutaj możesz podejrzeć wszystkie wysyłki z formularza kontaktowego (zapisane w LICZNIK → baza podstawowa).",
+      pv_key_label: "LICZNIK API key",
+      pv_key_ph: "Wklej klucz…",
+      pv_key_help:
+        "Klucz zapisuję lokalnie w tej przeglądarce (localStorage). Jest używany tylko do zapytań do API.",
+      pv_save: "Zapisz i wczytaj",
+      pv_clear: "Wyczyść",
+      pv_need_key: "Wklej klucz, żeby wczytać wiadomości.",
+      pv_loading: "Wczytywanie…",
+      pv_ok: "Wczytano.",
+      pv_empty: "Brak wiadomości.",
+      pv_error: "Nie udało się wczytać wiadomości.",
+      pv_views: "Wyświetlenia",
+      pv_uniques: "Unikalne osoby",
+      pv_from: "Od",
+      pv_category: "Kategoria",
+      pv_title_label: "Tytuł",
+      pv_message: "Wiadomość",
+      pv_time: "Czas",
+
+      stats_h1: "Statystyki",
+      stats_lead:
+        "Globalne statystyki strony + szczegółowe źródła ruchu (parametr <code>?from=...</code>).",
+      stats_total_h2: "Łącznie",
+      stats_sources_h2: "Źródła (from)",
+      stats_example:
+        "Przykład linku: <code>/?from=instagram</code> (wejścia z tego linku zliczą się do źródła <code>instagram</code>).",
+      stats_views: "Wyświetlenia",
+      stats_uniques: "Unikalne osoby",
+      stats_new: "Nowe osoby (pierwsza wizyta)",
+      stats_loading: "Wczytywanie statystyk…",
+      stats_error: "Nie udało się wczytać statystyk.",
+      stats_need_key: "Brak klucza API — nie mogę wczytać statystyk.",
+      stats_no_sources: "Brak danych źródeł."
     },
     en: {
       page_title_about: "Filip Biskupski — About",
       page_title_contact: "Contact — Filip Biskupski",
+      page_title_messages: "Messages — Filip Biskupski",
+      page_title_stats: "Stats — Filip Biskupski",
       meta_about:
         "Startup founder. Building QR Transfers and learning systems from the inside out.",
-      meta_contact: "Contact page with an email address.",
+      meta_contact: "Contact page with email and a form.",
+      meta_messages: "Viewer for messages sent via the contact form.",
+      meta_stats: "Website entry and traffic-source statistics.",
 
       nav_about: "About",
       nav_contact: "Contact",
@@ -355,11 +413,13 @@
       social_p: "You can find me here:",
 
       contact_h1: "Let’s talk.",
-      contact_lead: "The easiest way is email — you’ll find the address on the right.",
+      contact_lead: "You can email me or use the form — pick what’s easiest.",
       contact_email_h2: "Email",
       contact_email_p: "Click the address below to open a new email.",
       contact_email_note: "I reply as soon as I can.",
       contact_form_h2: "Contact form",
+      contact_form_p:
+        "You can send me a message using this form (the easiest way). If you prefer, you can always email me directly.",
       first_name: "First name",
       last_name: "Last name",
       email: "Email",
@@ -373,10 +433,52 @@
       title_label: "Title",
       desc_label: "Description",
       desc_ph: "A few lines are enough…",
-      send_btn: "Open email draft",
-      status_idle: "Opens your email app.",
-      mailto_fallback: "If nothing happened, click here.",
-      back_about: "Back to About"
+      send_btn: "Send",
+      status_idle: "Ready to send.",
+      status_sending: "Sending…",
+      status_ok: "Sent. Thanks!",
+      status_error: "Couldn’t send. Please email me.",
+      status_rate: "Give it a moment… try again shortly.",
+      status_need_key: "The form is temporarily disabled — please email me.",
+      mailto_fallback: "If the form doesn’t work, click here to email me.",
+      back_about: "Back to About",
+
+      pv_h1: "Messages",
+      pv_lead:
+        "Here you can view all contact-form submissions (stored in LICZNIK → basic DB).",
+      pv_key_label: "LICZNIK API key",
+      pv_key_ph: "Paste your key…",
+      pv_key_help:
+        "The key is stored locally in this browser (localStorage). It’s only used for API requests.",
+      pv_save: "Save & load",
+      pv_clear: "Clear",
+      pv_need_key: "Paste the key to load messages.",
+      pv_loading: "Loading…",
+      pv_ok: "Loaded.",
+      pv_empty: "No messages yet.",
+      pv_error: "Failed to load messages.",
+      pv_views: "Views",
+      pv_uniques: "Unique visitors",
+      pv_from: "From",
+      pv_category: "Category",
+      pv_title_label: "Title",
+      pv_message: "Message",
+      pv_time: "Time",
+
+      stats_h1: "Stats",
+      stats_lead:
+        "Global website stats + detailed traffic sources (the <code>?from=...</code> parameter).",
+      stats_total_h2: "Total",
+      stats_sources_h2: "Sources (from)",
+      stats_example:
+        "Example link: <code>/?from=instagram</code> (visits from that link will be attributed to <code>instagram</code>).",
+      stats_views: "Views",
+      stats_uniques: "Unique visitors",
+      stats_new: "New users (first visit)",
+      stats_loading: "Loading stats…",
+      stats_error: "Failed to load stats.",
+      stats_need_key: "Missing API key — can’t load stats.",
+      stats_no_sources: "No source data yet."
     }
   };
 
@@ -433,8 +535,23 @@
     });
 
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", isContact ? dict.meta_contact : dict.meta_about);
-    document.title = isContact ? dict.page_title_contact : dict.page_title_about;
+    if (meta) {
+      const desc = isMessages
+        ? dict.meta_messages
+        : isStats
+          ? dict.meta_stats
+          : isContact
+            ? dict.meta_contact
+            : dict.meta_about;
+      if (typeof desc === "string") meta.setAttribute("content", desc);
+    }
+    document.title = isMessages
+      ? dict.page_title_messages
+      : isStats
+        ? dict.page_title_stats
+      : isContact
+        ? dict.page_title_contact
+        : dict.page_title_about;
 
     // Typewriter phrases (per language)
     document.querySelectorAll("[data-typewriter]").forEach((el) => {
@@ -955,5 +1072,835 @@
     );
 
     els.forEach((el) => observer.observe(el));
+  })();
+
+  // LICZNIK: unique visitors, view count, contact form storage, and /pv/wiadomosci viewer.
+  (function initLicznik() {
+    const BASE_URL = "https://licznik-794170040235.europe-central2.run.app";
+    const PREFIX = "filip-biskupski-site-";
+
+    const COUNTER_VIEWS = `${PREFIX}views`;
+    const COUNTER_UNIQUES = `${PREFIX}uniques`;
+    const BASIC_DB_MESSAGES = `${PREFIX}contact-messages`;
+
+    const STORAGE_API_KEY = `${PREFIX}licznik-api-key`;
+    const STORAGE_VIEWED_AT = `${PREFIX}viewed-at`;
+    const STORAGE_VIEWED_SESSION = `${PREFIX}viewed-session`;
+    const STORAGE_SEEN = `${PREFIX}seen`;
+    const STORAGE_LAST_CONTACT = `${PREFIX}last-contact`;
+    const STORAGE_FROM = `${PREFIX}from`;
+
+    const VIEW_TTL_MS = 1000 * 60 * 60; // 1 hour
+    const UNIQUE_TTL_DAYS = 365;
+    const CONTACT_TTL_MS = 1000 * 25; // 25 seconds
+    const ENGAGEMENT_DELAY_MS = 3500;
+
+    const safeStorageGet = (storage, key) => {
+      try {
+        return storage.getItem(key);
+      } catch {
+        return null;
+      }
+    };
+
+    const safeStorageSet = (storage, key, value) => {
+      try {
+        storage.setItem(key, value);
+        return true;
+      } catch {
+        return false;
+      }
+    };
+
+    const safeStorageRemove = (storage, key) => {
+      try {
+        storage.removeItem(key);
+        return true;
+      } catch {
+        return false;
+      }
+    };
+
+    const getApiKey = () => {
+      const fromGlobal = typeof window.LICZNIK_API_KEY === "string" ? window.LICZNIK_API_KEY : "";
+      const fromStorage = safeStorageGet(window.localStorage, STORAGE_API_KEY) || "";
+      return String(fromGlobal || fromStorage || "").trim();
+    };
+
+    const isLikelyBot = () => {
+      const ua = String(navigator.userAgent || "").toLowerCase();
+      if (!ua) return false;
+      if (navigator.webdriver) return true;
+      const needles = [
+        "bot",
+        "crawler",
+        "spider",
+        "crawling",
+        "headless",
+        "lighthouse",
+        "slurp",
+        "bingbot",
+        "bingpreview",
+        "duckduckbot",
+        "yandexbot",
+        "baiduspider",
+        "semrush",
+        "ahrefs",
+        "mj12bot",
+        "facebookexternalhit",
+        "telegrambot",
+        "discordbot",
+        "whatsapp",
+        "preview"
+      ];
+      return needles.some((n) => ua.includes(n));
+    };
+
+    const setCookie = (name, value, days) => {
+      const d = new Date();
+      d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+      const expires = `expires=${d.toUTCString()}`;
+      document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(
+        value
+      )}; ${expires}; path=/; SameSite=Lax`;
+    };
+
+    const getCookie = (name) => {
+      const wanted = `${encodeURIComponent(name)}=`;
+      const items = document.cookie.split(";").map((s) => s.trim());
+      for (const item of items) {
+        if (!item.startsWith(wanted)) continue;
+        return decodeURIComponent(item.slice(wanted.length));
+      }
+      return null;
+    };
+
+    const buildUrl = (path, params) => {
+      const base = BASE_URL.replace(/\/+$/, "");
+      const url = new URL(`${base}${path.startsWith("/") ? path : `/${path}`}`);
+      if (params) {
+        Object.entries(params).forEach(([k, v]) => {
+          if (v === undefined || v === null || v === "") return;
+          url.searchParams.set(k, String(v));
+        });
+      }
+      return url.toString();
+    };
+
+    const sanitizeFrom = (raw) => {
+      const s = String(raw || "")
+        .trim()
+        .toLowerCase();
+      if (!s) return "";
+      const cleaned = s
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+/, "")
+        .replace(/-+$/, "")
+        .slice(0, 40);
+      return cleaned;
+    };
+
+    const getFrom = () => safeStorageGet(window.sessionStorage, STORAGE_FROM) || "";
+
+    const captureFromParam = () => {
+      let from = "";
+      try {
+        const url = new URL(window.location.href);
+        const raw = url.searchParams.get("from") || "";
+        const slug = sanitizeFrom(raw);
+        const stored = getFrom();
+        if (!stored && slug) safeStorageSet(window.sessionStorage, STORAGE_FROM, slug);
+        from = stored || slug;
+
+        if (raw) {
+          url.searchParams.delete("from");
+          const qs = url.searchParams.toString();
+          const next = `${url.pathname}${qs ? `?${qs}` : ""}${url.hash || ""}`;
+          window.history.replaceState(null, "", next);
+        }
+      } catch {
+        // ignore
+      }
+      return from;
+    };
+
+    const bumpCounter = (name) => {
+      const apiKey = getApiKey();
+      const url = buildUrl(`/dodaj/${encodeURIComponent(name)}`, {
+        pixel: 1,
+        key: apiKey || undefined,
+        _: Date.now()
+      });
+      const img = new Image(1, 1);
+      img.decoding = "async";
+      img.referrerPolicy = "no-referrer";
+      img.src = url;
+    };
+
+    const fromCounterViews = (from) => `${PREFIX}from-${from}-views`;
+    const fromCounterUniques = (from) => `${PREFIX}from-${from}-uniques`;
+
+    // Capture attribution early (so it works even if user sends the form fast).
+    captureFromParam();
+
+    const waitForEngagement = () =>
+      new Promise((resolve) => {
+        if (prefersReducedMotion) {
+          resolve();
+          return;
+        }
+
+        let done = false;
+        let timeoutId = 0;
+
+        const finish = () => {
+          if (done) return;
+          done = true;
+          cleanup();
+          resolve();
+        };
+
+        const onInteract = () => finish();
+
+        const cleanup = () => {
+          if (timeoutId) window.clearTimeout(timeoutId);
+          window.removeEventListener("pointerdown", onInteract);
+          window.removeEventListener("touchstart", onInteract);
+          window.removeEventListener("keydown", onInteract);
+          window.removeEventListener("scroll", onInteract);
+        };
+
+        timeoutId = window.setTimeout(finish, ENGAGEMENT_DELAY_MS);
+        window.addEventListener("pointerdown", onInteract, { once: true, passive: true });
+        window.addEventListener("touchstart", onInteract, { once: true, passive: true });
+        window.addEventListener("scroll", onInteract, { once: true, passive: true });
+        window.addEventListener("keydown", onInteract, { once: true });
+      });
+
+    // Analytics: only count on public pages (skip /pv/*).
+    (async function track() {
+      if (isPv || isStats) return;
+      if (document.visibilityState === "prerender") return;
+      if (isLikelyBot()) return;
+
+      const from = getFrom();
+
+      await waitForEngagement();
+      if (document.visibilityState === "hidden") return;
+
+      const now = Date.now();
+      const lastView = Number(safeStorageGet(window.localStorage, STORAGE_VIEWED_AT) || "0");
+      const viewedThisSession = safeStorageGet(window.sessionStorage, STORAGE_VIEWED_SESSION) === "1";
+
+      if (!viewedThisSession && (!Number.isFinite(lastView) || now - lastView > VIEW_TTL_MS)) {
+        safeStorageSet(window.sessionStorage, STORAGE_VIEWED_SESSION, "1");
+        safeStorageSet(window.localStorage, STORAGE_VIEWED_AT, String(now));
+        bumpCounter(COUNTER_VIEWS);
+        if (from) bumpCounter(fromCounterViews(from));
+      }
+
+      const seenCookie = getCookie(STORAGE_SEEN);
+      const seenLocal = safeStorageGet(window.localStorage, STORAGE_SEEN) === "1";
+      if (!seenCookie && !seenLocal) {
+        safeStorageSet(window.localStorage, STORAGE_SEEN, "1");
+        setCookie(STORAGE_SEEN, "1", UNIQUE_TTL_DAYS);
+        bumpCounter(COUNTER_UNIQUES);
+        if (from) bumpCounter(fromCounterUniques(from));
+      }
+    })();
+
+    // Contact form -> basic DB.
+    (function initContactForm() {
+      const form = document.querySelector("[data-contact-form]");
+      if (!(form instanceof HTMLFormElement)) return;
+
+      const statusEl = document.getElementById("contact-status");
+      let statusKey = "status_idle";
+
+      const setStatusKey = (key, tone) => {
+        statusKey = key;
+        if (statusEl) {
+          statusEl.classList.remove("ok", "error");
+          if (tone) statusEl.classList.add(tone);
+          statusEl.textContent = t(key);
+        }
+      };
+
+      setStatusKey("status_idle");
+      langListeners.add(() => setStatusKey(statusKey, statusEl?.classList.contains("error") ? "error" : statusEl?.classList.contains("ok") ? "ok" : ""));
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if (isLikelyBot()) return;
+
+        const hp = form.querySelector('input[name="company"]');
+        if (hp instanceof HTMLInputElement && hp.value.trim().length) {
+          setStatusKey("status_ok", "ok");
+          form.reset();
+          return;
+        }
+
+        const last = Number(safeStorageGet(window.localStorage, STORAGE_LAST_CONTACT) || "0");
+        const now = Date.now();
+        if (Number.isFinite(last) && now - last < CONTACT_TTL_MS) {
+          setStatusKey("status_rate", "error");
+          return;
+        }
+
+        const fd = new FormData(form);
+        const firstName = String(fd.get("first_name") || "").trim();
+        const lastName = String(fd.get("last_name") || "").trim();
+        const email = String(fd.get("email") || "").trim();
+        const category = String(fd.get("category") || "").trim();
+        const title = String(fd.get("title") || "").trim();
+        const desc = String(fd.get("description") || "").trim();
+
+        if (!firstName || !lastName || !email || !category || !title || !desc) {
+          setStatusKey("status_error", "error");
+          return;
+        }
+
+        const payload = {
+          ts: new Date().toISOString(),
+          fn: firstName,
+          ln: lastName,
+          em: email,
+          cat: category,
+          ti: title,
+          d: desc,
+          p: window.location.pathname,
+          from: getFrom()
+        };
+
+        const raw = JSON.stringify(payload);
+        // Guard against extremely long URLs.
+        if (raw.length > 1600) {
+          setStatusKey("status_error", "error");
+          return;
+        }
+
+        const apiKey = getApiKey();
+        if (!apiKey) {
+          setStatusKey("status_need_key", "error");
+          return;
+        }
+        const url = buildUrl(
+          `/baza-podstawowa/dodaj/${encodeURIComponent(BASIC_DB_MESSAGES)}/${encodeURIComponent(raw)}`,
+          { key: apiKey, _: Date.now() }
+        );
+
+        setStatusKey("status_sending");
+
+        try {
+          const res = await fetch(url, { method: "GET" });
+          if (!res.ok) {
+            if (res.status === 401 || res.status === 403) {
+              setStatusKey("status_need_key", "error");
+            } else {
+              setStatusKey("status_error", "error");
+            }
+            return;
+          }
+        } catch {
+          try {
+            // Fire-and-forget fallback for restrictive CORS setups.
+            await fetch(url, { method: "GET", mode: "no-cors" });
+          } catch {
+            setStatusKey("status_error", "error");
+            return;
+          }
+        }
+
+        safeStorageSet(window.localStorage, STORAGE_LAST_CONTACT, String(Date.now()));
+        setStatusKey("status_ok", "ok");
+        form.reset();
+      });
+    })();
+
+    // /pv/wiadomosci viewer.
+    (function initMessagesViewer() {
+      if (!isMessages) return;
+
+      const keyInput = document.getElementById("pv-key");
+      const btnSave = document.querySelector("[data-pv-save]");
+      const btnClear = document.querySelector("[data-pv-clear]");
+      const statusEl = document.getElementById("pv-status");
+      const listEl = document.getElementById("pv-messages");
+      const viewsEl = document.getElementById("pv-views");
+      const uniquesEl = document.getElementById("pv-uniques");
+
+      let statusKey = "pv_need_key";
+      let statusTone = "";
+      let lastItems = [];
+      let lastViews = null;
+      let lastUniques = null;
+
+      const setStatus = (key, tone) => {
+        statusKey = key;
+        statusTone = tone || "";
+        if (!statusEl) return;
+        statusEl.classList.remove("ok", "error");
+        if (tone) statusEl.classList.add(tone);
+        statusEl.textContent = t(key);
+      };
+
+      const render = (items) => {
+        lastItems = items;
+        if (!listEl) return;
+        listEl.innerHTML = "";
+
+        if (!items.length) {
+          const empty = document.createElement("div");
+          empty.className = "card pad";
+          empty.textContent = t("pv_empty");
+          listEl.appendChild(empty);
+          return;
+        }
+
+        for (const raw of items) {
+          const card = document.createElement("div");
+          card.className = "card pad";
+
+          let obj = null;
+          try {
+            obj = JSON.parse(raw);
+          } catch {
+            obj = null;
+          }
+
+          if (!obj || typeof obj !== "object") {
+            card.textContent = raw;
+            listEl.appendChild(card);
+            continue;
+          }
+
+          const top = document.createElement("div");
+          top.style.display = "flex";
+          top.style.justifyContent = "space-between";
+          top.style.gap = "10px";
+          top.style.flexWrap = "wrap";
+
+          const left = document.createElement("div");
+          left.style.minWidth = "0";
+
+          const title = document.createElement("div");
+          title.style.fontWeight = "650";
+          title.textContent = `${t("pv_title_label")}: ${obj.ti || ""}`.trim();
+
+          const meta = document.createElement("div");
+          meta.className = "muted";
+          meta.style.marginTop = "6px";
+          meta.textContent = `${t("pv_from")}: ${(obj.fn || "").trim()} ${(obj.ln || "").trim()} • ${t("pv_category")}: ${obj.cat || ""}`;
+
+          left.appendChild(title);
+          left.appendChild(meta);
+
+          const right = document.createElement("div");
+          right.className = "muted";
+          right.textContent = `${t("pv_time")}: ${obj.ts || ""}`;
+
+          top.appendChild(left);
+          top.appendChild(right);
+
+          const msg = document.createElement("div");
+          msg.style.marginTop = "12px";
+          msg.textContent = `${t("pv_message")}: ${obj.d || ""}`.trim();
+
+          const emailLine = document.createElement("div");
+          emailLine.className = "muted";
+          emailLine.style.marginTop = "10px";
+          const emailLink = document.createElement("a");
+          emailLink.href = `mailto:${encodeURIComponent(String(obj.em || "").trim())}`;
+          emailLink.textContent = String(obj.em || "").trim();
+          emailLine.appendChild(emailLink);
+
+          card.appendChild(top);
+          card.appendChild(msg);
+          card.appendChild(emailLine);
+
+          listEl.appendChild(card);
+        }
+      };
+
+      const formatCount = (n) => {
+        if (!Number.isFinite(n)) return "—";
+        const value = Math.max(0, Math.round(n));
+        try {
+          return new Intl.NumberFormat(lang === "pl" ? "pl-PL" : "en-US").format(value);
+        } catch {
+          return String(value);
+        }
+      };
+
+      const renderCounts = () => {
+        if (viewsEl) viewsEl.textContent = formatCount(lastViews);
+        if (uniquesEl) uniquesEl.textContent = formatCount(lastUniques);
+      };
+
+      const parseCounterValue = (text) => {
+        const s = String(text || "").trim();
+        if (!s) return NaN;
+
+        try {
+          const json = JSON.parse(s);
+          if (typeof json === "number") return json;
+          if (json && typeof json === "object") {
+            const candidates = [json.value, json.count, json.result, json.data];
+            const found = candidates.find((v) => typeof v === "number");
+            if (typeof found === "number") return found;
+          }
+        } catch {
+          // ignore
+        }
+
+        const n = Number(s.replace(/[^\d.-]/g, ""));
+        return Number.isFinite(n) ? n : NaN;
+      };
+
+      const loadCounts = async (apiKey) => {
+        if (!apiKey) {
+          lastViews = null;
+          lastUniques = null;
+          renderCounts();
+          return;
+        }
+
+        try {
+          const [viewsText, uniquesText] = await Promise.all([
+            fetch(
+              buildUrl(`/ile/${encodeURIComponent(COUNTER_VIEWS)}`, {
+                format: "json",
+                key: apiKey
+              }),
+              { headers: { Accept: "application/json" } }
+            ).then((r) => (r.ok ? r.text() : "")),
+            fetch(
+              buildUrl(`/ile/${encodeURIComponent(COUNTER_UNIQUES)}`, {
+                format: "json",
+                key: apiKey
+              }),
+              { headers: { Accept: "application/json" } }
+            ).then((r) => (r.ok ? r.text() : ""))
+          ]);
+
+          lastViews = parseCounterValue(viewsText);
+          lastUniques = parseCounterValue(uniquesText);
+        } catch {
+          lastViews = null;
+          lastUniques = null;
+        }
+
+        renderCounts();
+      };
+
+      const load = async () => {
+        const apiKey = getApiKey();
+        if (!apiKey) {
+          setStatus("pv_need_key", "error");
+          render([]);
+          loadCounts("");
+          return;
+        }
+
+        setStatus("pv_loading");
+        loadCounts(apiKey);
+        try {
+          const url = buildUrl(`/baza-podstawowa/odczyt/${encodeURIComponent(BASIC_DB_MESSAGES)}`, {
+            format: "json",
+            key: apiKey
+          });
+          const res = await fetch(url, { headers: { Accept: "application/json" } });
+          if (!res.ok) {
+            setStatus("pv_error", "error");
+            return;
+          }
+
+          const text = await res.text();
+          let items = [];
+          try {
+            const json = JSON.parse(text);
+            if (Array.isArray(json)) items = json;
+            else if (json && typeof json === "object") {
+              const candidates = [json.items, json.data, json.values, json.elements];
+              const found = candidates.find((v) => Array.isArray(v));
+              if (Array.isArray(found)) items = found;
+            }
+          } catch {
+            items = text
+              .split("\n")
+              .map((s) => s.trim())
+              .filter(Boolean);
+          }
+
+          items = items.filter((v) => typeof v === "string");
+          render(items.slice().reverse());
+          setStatus("pv_ok", "ok");
+        } catch {
+          setStatus("pv_error", "error");
+        }
+      };
+
+      const stored = safeStorageGet(window.localStorage, STORAGE_API_KEY) || "";
+      if (keyInput instanceof HTMLInputElement) keyInput.value = stored;
+
+      btnSave?.addEventListener("click", () => {
+        if (keyInput instanceof HTMLInputElement) {
+          safeStorageSet(window.localStorage, STORAGE_API_KEY, keyInput.value.trim());
+        }
+        load();
+      });
+
+      btnClear?.addEventListener("click", () => {
+        safeStorageRemove(window.localStorage, STORAGE_API_KEY);
+        if (keyInput instanceof HTMLInputElement) keyInput.value = "";
+        setStatus("pv_need_key", "error");
+        render([]);
+        loadCounts("");
+      });
+
+      langListeners.add(() => {
+        render(lastItems);
+        renderCounts();
+        setStatus(statusKey, statusTone);
+      });
+      load();
+    })();
+
+    // /staty page (global + per-source stats).
+    (function initStatsPage() {
+      if (!isStats) return;
+
+      const statusEl = document.getElementById("stats-status");
+      const totalViewsEl = document.getElementById("stats-views");
+      const totalUniquesEl = document.getElementById("stats-uniques");
+      const sourcesEl = document.getElementById("stats-sources");
+
+      let statusKey = "stats_loading";
+      let statusTone = "";
+      let totalViews = null;
+      let totalUniques = null;
+      let sources = [];
+
+      const setStatus = (key, tone) => {
+        statusKey = key;
+        statusTone = tone || "";
+        if (!statusEl) return;
+        statusEl.classList.remove("ok", "error");
+        if (tone) statusEl.classList.add(tone);
+        statusEl.textContent = key ? t(key) : "";
+      };
+
+      const formatCount = (n) => {
+        if (!Number.isFinite(n)) return "—";
+        const value = Math.max(0, Math.round(n));
+        try {
+          return new Intl.NumberFormat(lang === "pl" ? "pl-PL" : "en-US").format(value);
+        } catch {
+          return String(value);
+        }
+      };
+
+      const renderTotals = () => {
+        if (totalViewsEl) totalViewsEl.textContent = formatCount(totalViews);
+        if (totalUniquesEl) totalUniquesEl.textContent = formatCount(totalUniques);
+      };
+
+      const renderSources = () => {
+        if (!sourcesEl) return;
+        sourcesEl.innerHTML = "";
+
+        if (!sources.length) {
+          const empty = document.createElement("div");
+          empty.className = "card pad";
+          empty.textContent = t("stats_no_sources");
+          sourcesEl.appendChild(empty);
+          return;
+        }
+
+        for (const item of sources) {
+          const card = document.createElement("div");
+          card.className = "card pad";
+
+          const title = document.createElement("div");
+          title.style.fontWeight = "650";
+          title.textContent = `from: ${item.from}`;
+
+          const meta = document.createElement("div");
+          meta.className = "muted";
+          meta.style.marginTop = "10px";
+          meta.textContent = `${t("stats_views")}: ${formatCount(item.views)} · ${t("stats_new")}: ${formatCount(item.newUsers)}`;
+
+          card.appendChild(title);
+          card.appendChild(meta);
+          sourcesEl.appendChild(card);
+        }
+      };
+
+      const parseCounterValue = (value) => {
+        if (typeof value === "number") return value;
+        const s = String(value || "").trim();
+        if (!s) return NaN;
+
+        try {
+          const json = JSON.parse(s);
+          if (typeof json === "number") return json;
+          if (json && typeof json === "object") {
+            const candidates = [json.value, json.count, json.result, json.data];
+            const found = candidates.find((v) => typeof v === "number");
+            if (typeof found === "number") return found;
+          }
+        } catch {
+          // ignore
+        }
+
+        const n = Number(s.replace(/[^\d.-]/g, ""));
+        return Number.isFinite(n) ? n : NaN;
+      };
+
+      const normalizeRows = (json) => {
+        if (Array.isArray(json)) return json;
+        if (json && typeof json === "object") {
+          const candidates = [json.counters, json.items, json.data, json.rows, json.values];
+          const found = candidates.find((v) => Array.isArray(v));
+          if (Array.isArray(found)) return found;
+        }
+        return [];
+      };
+
+      const getRowName = (row) => {
+        if (!row) return "";
+        if (typeof row === "string") return row;
+        if (Array.isArray(row)) return String(row[0] || "");
+        if (typeof row === "object") {
+          return String(row.name || row.counter || row.id || row.key || "");
+        }
+        return "";
+      };
+
+      const getRowValue = (row) => {
+        if (!row) return NaN;
+        if (typeof row === "number") return row;
+        if (Array.isArray(row)) return parseCounterValue(row[1]);
+        if (typeof row === "object") {
+          const v = row.value ?? row.count ?? row.v ?? row.n ?? row.amount ?? row.result;
+          return parseCounterValue(v);
+        }
+        return NaN;
+      };
+
+      const load = async () => {
+        const apiKey = getApiKey();
+        if (!apiKey) {
+          totalViews = null;
+          totalUniques = null;
+          sources = [];
+          renderTotals();
+          renderSources();
+          setStatus("stats_need_key", "error");
+          return;
+        }
+
+        setStatus("stats_loading");
+
+        try {
+          const [viewsText, uniquesText] = await Promise.all([
+            fetch(
+              buildUrl(`/ile/${encodeURIComponent(COUNTER_VIEWS)}`, {
+                format: "json",
+                key: apiKey
+              }),
+              { headers: { Accept: "application/json" } }
+            ).then((r) => (r.ok ? r.text() : "")),
+            fetch(
+              buildUrl(`/ile/${encodeURIComponent(COUNTER_UNIQUES)}`, {
+                format: "json",
+                key: apiKey
+              }),
+              { headers: { Accept: "application/json" } }
+            ).then((r) => (r.ok ? r.text() : ""))
+          ]);
+
+          totalViews = parseCounterValue(viewsText);
+          totalUniques = parseCounterValue(uniquesText);
+        } catch {
+          totalViews = null;
+          totalUniques = null;
+        }
+
+        renderTotals();
+
+        try {
+          const res = await fetch(
+            buildUrl("/tabel", { format: "json", limit: 500, key: apiKey }),
+            { headers: { Accept: "application/json" } }
+          );
+          if (!res.ok) {
+            sources = [];
+            renderSources();
+            setStatus("stats_error", "error");
+            return;
+          }
+
+          const text = await res.text();
+          let json = null;
+          try {
+            json = JSON.parse(text);
+          } catch {
+            json = null;
+          }
+
+          const rows = normalizeRows(json);
+          const fromPrefix = `${PREFIX}from-`;
+          const suffixViews = "-views";
+          const suffixUniques = "-uniques";
+
+          const map = new Map();
+          for (const row of rows) {
+            const name = getRowName(row);
+            if (!name.startsWith(fromPrefix)) continue;
+            const value = getRowValue(row);
+
+            if (name.endsWith(suffixViews)) {
+              const from = name.slice(fromPrefix.length, name.length - suffixViews.length);
+              if (!from) continue;
+              const prev = map.get(from) || { from, views: 0, newUsers: 0 };
+              prev.views = Number.isFinite(value) ? value : prev.views;
+              map.set(from, prev);
+              continue;
+            }
+
+            if (name.endsWith(suffixUniques)) {
+              const from = name.slice(fromPrefix.length, name.length - suffixUniques.length);
+              if (!from) continue;
+              const prev = map.get(from) || { from, views: 0, newUsers: 0 };
+              prev.newUsers = Number.isFinite(value) ? value : prev.newUsers;
+              map.set(from, prev);
+            }
+          }
+
+          sources = Array.from(map.values()).sort((a, b) => {
+            const av = Number.isFinite(a.views) ? a.views : 0;
+            const bv = Number.isFinite(b.views) ? b.views : 0;
+            if (bv !== av) return bv - av;
+            return String(a.from).localeCompare(String(b.from));
+          });
+
+          renderSources();
+          setStatus("", "ok");
+        } catch {
+          sources = [];
+          renderSources();
+          setStatus("stats_error", "error");
+        }
+      };
+
+      langListeners.add(() => {
+        renderTotals();
+        renderSources();
+        setStatus(statusKey, statusTone);
+      });
+
+      load();
+    })();
   })();
 })();
