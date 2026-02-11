@@ -1089,6 +1089,7 @@
     const STORAGE_SEEN = `${PREFIX}seen`;
     const STORAGE_LAST_CONTACT = `${PREFIX}last-contact`;
     const STORAGE_FROM = `${PREFIX}from`;
+    const STORAGE_FROM_MODE = `${PREFIX}from-mode`;
 
     const VIEW_TTL_MS = 1000 * 60 * 60; // 1 hour
     const UNIQUE_TTL_DAYS = 365;
@@ -1187,6 +1188,21 @@
       return url.toString();
     };
 
+    const ensureBaseHref = (href) => {
+      if (!href) return;
+      try {
+        let baseEl = document.querySelector('base[data-dynamic-base="1"]');
+        if (!(baseEl instanceof HTMLBaseElement)) {
+          baseEl = document.createElement("base");
+          baseEl.setAttribute("data-dynamic-base", "1");
+          document.head.prepend(baseEl);
+        }
+        baseEl.setAttribute("href", href);
+      } catch {
+        // ignore
+      }
+    };
+
     const sanitizeFrom = (raw) => {
       const s = String(raw || "")
         .trim()
@@ -1201,6 +1217,42 @@
     };
 
     const getFrom = () => safeStorageGet(window.sessionStorage, STORAGE_FROM) || "";
+
+    const restoreFromPathMode = () => {
+      const mode = safeStorageGet(window.sessionStorage, STORAGE_FROM_MODE) || "";
+      if (mode !== "path") return;
+
+      // Only restore on the base "directory" page (after 404 redirect).
+      const pathname = String(window.location.pathname || "/");
+      if (!pathname.endsWith("/")) {
+        safeStorageRemove(window.sessionStorage, STORAGE_FROM_MODE);
+        return;
+      }
+      if (isContact || isPv || isStats) {
+        safeStorageRemove(window.sessionStorage, STORAGE_FROM_MODE);
+        return;
+      }
+
+      const from = getFrom();
+      if (!from) {
+        safeStorageRemove(window.sessionStorage, STORAGE_FROM_MODE);
+        return;
+      }
+
+      const baseHref = pathname;
+      const nextPath = `${baseHref}from/${encodeURIComponent(from)}`;
+      const nextUrl = `${nextPath}${window.location.search || ""}${window.location.hash || ""}`;
+
+      try {
+        window.history.replaceState(null, "", nextUrl);
+      } catch {
+        // ignore
+      }
+
+      // Keep internal relative links working even when URL is /from/<...>.
+      ensureBaseHref(baseHref);
+      safeStorageRemove(window.sessionStorage, STORAGE_FROM_MODE);
+    };
 
     const captureFromParam = () => {
       let from = "";
@@ -1243,6 +1295,7 @@
 
     // Capture attribution early (so it works even if user sends the form fast).
     captureFromParam();
+    restoreFromPathMode();
 
     const waitForEngagement = () =>
       new Promise((resolve) => {

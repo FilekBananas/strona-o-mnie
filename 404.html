@@ -44,6 +44,7 @@
       (function () {
         const PREFIX = "filip-biskupski-site-";
         const STORAGE_FROM = PREFIX + "from";
+        const STORAGE_FROM_MODE = PREFIX + "from-mode";
 
         const sanitizeFrom = (raw) => {
           const s = String(raw || "")
@@ -72,6 +73,7 @@
           if (slug) {
             try {
               window.sessionStorage.setItem(STORAGE_FROM, slug);
+              window.sessionStorage.setItem(STORAGE_FROM_MODE, "path");
             } catch {
               // ignore
             }
@@ -90,4 +92,3 @@
     </script>
   </body>
 </html>
-
