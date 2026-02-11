@@ -245,7 +245,7 @@
       stats_total_h2: "Łącznie",
       stats_sources_h2: "Źródła (from)",
       stats_example:
-        "Przykład linku: <code>/?from=instagram</code> (wejścia z tego linku zliczą się do źródła <code>instagram</code>).",
+        "Przykład linku: <code>/from/instagram</code> (albo <code>/?from=instagram</code>). Wejścia z tego linku zliczą się do źródła <code>instagram</code>.",
       stats_views: "Wyświetlenia",
       stats_uniques: "Unikalne osoby",
       stats_new: "Nowe osoby (pierwsza wizyta)",
@@ -471,7 +471,7 @@
       stats_total_h2: "Total",
       stats_sources_h2: "Sources (from)",
       stats_example:
-        "Example link: <code>/?from=instagram</code> (visits from that link will be attributed to <code>instagram</code>).",
+        "Example link: <code>/from/instagram</code> (or <code>/?from=instagram</code>). Visits from that link will be attributed to <code>instagram</code>.",
       stats_views: "Views",
       stats_uniques: "Unique visitors",
       stats_new: "New users (first visit)",
@@ -1206,13 +1206,14 @@
       let from = "";
       try {
         const url = new URL(window.location.href);
+        const hasFrom = url.searchParams.has("from");
         const raw = url.searchParams.get("from") || "";
         const slug = sanitizeFrom(raw);
         const stored = getFrom();
-        if (!stored && slug) safeStorageSet(window.sessionStorage, STORAGE_FROM, slug);
-        from = stored || slug;
+        if (slug) safeStorageSet(window.sessionStorage, STORAGE_FROM, slug);
+        from = slug || stored;
 
-        if (raw) {
+        if (hasFrom) {
           url.searchParams.delete("from");
           const qs = url.searchParams.toString();
           const next = `${url.pathname}${qs ? `?${qs}` : ""}${url.hash || ""}`;

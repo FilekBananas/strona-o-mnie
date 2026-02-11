@@ -21,6 +21,8 @@ python3 -m http.server 3000
 
 - The site is static (GitHub Pages). Any “backend” features use external APIs (LICZNIK).
 - `/pv/wiadomosci` reads the LICZNIK API key from localStorage (`filip-biskupski-site-licznik-api-key`).
+- Traffic attribution:
+  - `/?from=instagram` (or `/from/instagram`) attributes the session to `instagram`.
 
 ## Deploy (GitHub Pages)
 
